@@ -1,4 +1,7 @@
 {
-  "roy": { "id": "roy", "nickname": "로이" },
-  "jay": { "id": "jay", "nickanme": "제이" }
+  "gimoonId": { "name": "gimoon", "nickname": "기문", "age": 20 },
+  "yongsId": { "name": "yongs", "nickanme": "아용", "age": 20 },
+  "helloId": { "name": "hello", "nickanme": "헬로우", "age": 20 },
+  "byeId": { "name": "bye", "nickanme": "바이", "age": 20 }
+
 }

@@ -1,4 +1,6 @@
 import './index.scss'
+import "../styles/font.css";
+
 
 const App = ({ Component, pageProps }) => <Component {...pageProps} />
 

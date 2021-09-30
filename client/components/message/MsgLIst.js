@@ -1,7 +1,7 @@
 import MsgItem from './MsgItem';
 import MsgInput from "./MsgInput";
 import {useEffect, useState} from "react";
-import fetcher from "../../fetcher";
+import fetcher from "../../utils/fetcher";
 import {useRouter} from "next/router";
 import {error} from "next/dist/build/output/log";
 
