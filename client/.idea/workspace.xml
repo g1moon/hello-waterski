@@ -1,73 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c604db47-9d13-4af9-81ce-ea50f337372a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../API.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/CarouselButton/CarouselButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/CarouselItem/CarouselItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Footer/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Header/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ImageItem/ImageItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ImageModall/ImageModall.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ImageUploadModal/UploadModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/LineItem/LineItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/LineList/LineList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/SearchBar/SearchBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ServiceItem/ServiceItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Services/Services.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/SpotItem/SpotItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/SpotList/SpotList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/TopSpot/TopSpot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/TopSpotsList/TopSpotsList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/UsedItem/UsedItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/UsedItemList/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/UsedItemList/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/UsedMarketSortingButton/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/UsedMarketSortingButton/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/carousel/Carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/Intro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/images/Images.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/useditemdetail/UsedItemDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useAsync.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layout/Nav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layout/NavBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/api/isLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/api/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/api/logout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/api/view/[id].js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/imagetalk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/line/[spotId].js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/line/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/login/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/useditem/[usedItemId].js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/useditem/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/usedmarket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data/line.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data/spot.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data/useditems.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/global.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/checkLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/logout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/swrFetcher.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/db/userstest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/routes/userstest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Msg/MsgInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/message/MsgInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Msg/MsgItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/message/MsgItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Msg/MsgLIst.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/message/MsgLIst.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/fetcher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/db/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/db/messagestest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/db/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/db/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="c604db47-9d13-4af9-81ce-ea50f337372a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +62,7 @@
       <updated>1632729545126</updated>
       <workItem from="1632729546370" duration="65000" />
       <workItem from="1632729648901" duration="14842000" />
-      <workItem from="1632814029942" duration="22762000" />
+      <workItem from="1632814029942" duration="22928000" />
     </task>
     <servers />
   </component>
