@@ -2,6 +2,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 
 export default (setLoginState) => {
+    sessionStorage.clear();
     console.log('logout');
     axios.get('/api/logout')
         .then((res) => {
