@@ -3,6 +3,33 @@ import {useEffect, useState} from "react";
 import fetcher from "../../utils/fetcher";
 import axios from 'axios';
 import LineList from "../../components/LineList/LineList";
+import SpotItem from "../../components/SpotItem/SpotItem";
+import MainSpotInfo from "../../components/MainSpotInfo/MainSpotInfo";
+import GlobalStyle from "../../styles/global";
+import styled from "styled-components";
+import CurrentWating from "../../components/CurrentWating";
+import NavBar from "../../layout/NavBar";
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+`;
+
+const MainInfoAndCurrent = styled.div`
+    margin-left: 20px;
+
+  @media screen and (max-width: 1024px){
+    margin-bottom: 30px;
+  }
+`;
+
 
 const spotLine = ({query}) => {
     const router = useRouter();
@@ -20,28 +47,16 @@ const spotLine = ({query}) => {
     const [allSpotData, setAllSpotData] = useState([]);
     const [oneSpotData, setOneSpotData] = useState(null);
 
+    const [myTurn, setMyTurn] = useState(null);
 
 
 
     const getAllSpotData = async () => {
-        // await axios.get('/data/spot.json')
-        //     .then((result) => {
-        //         setAllSpotData(result.data);
-        //     })
-        //     .catch((error) => {
-        //         setError(error);
-        //         console.log(error);
-        //     });
         const data = await fetcher('get', '/data/spot.json');
         setAllSpotData(data);
     };
 
     const getAllLineData = async () => {
-        // await axios.get('/data/line.json')
-        //     .then((result) => {
-        //         setAllLineData(result.data);
-        //     })
-        //     .catch((error) => setError(error));
         const data = await fetcher('get', '/data/line.json');
         setAllLineData(data);
     };
@@ -60,6 +75,13 @@ const spotLine = ({query}) => {
 
     };
 
+    const getMyTurn = () => {
+
+        //useId를 가져오고
+        const userId = sessionStorage.getItem('userId');
+        setMyTurn(oneSpotLineData.findIndex(line => line.userId === userId));
+    };
+
 
     useEffect(() => {
         getAllSpotData();
@@ -67,17 +89,35 @@ const spotLine = ({query}) => {
     }, []);
 
 
-    useEffect( () => {
+    useEffect(() => {
         getAndSetOneSpotLineData();
         getAndSetOneSpotData();
     }, [allLineData]);
 
 
-    if (oneSpotData === null || oneSpotLineData === null) return <div>로딩중</div>;
+    useEffect(() => {
+        if (oneSpotLineData === null) return;
+        getMyTurn();
+    }, [oneSpotLineData]);
+
+
+    useEffect(() => {
+        console.log(myTurn);
+    }, [myTurn]);
+
+    if (oneSpotData === null || oneSpotLineData === null || myTurn === null) return <div>로딩중</div>;
 
     return (
         <>
+            <NavBar/>
+        <Container>
+            <GlobalStyle></GlobalStyle>
+            <MainInfoAndCurrent>
+                <MainSpotInfo oneSpotInfo={oneSpotData}></MainSpotInfo>
+                <CurrentWating myTurn={myTurn}></CurrentWating>
+            </MainInfoAndCurrent>
             <LineList oneSpotLineData={oneSpotLineData}/>
+        </Container>
         </>
 
     );
