@@ -27,7 +27,7 @@ const HomeButton = styled.a`
   font-weight: bold;
   //color: blanchedalmond;
   color: ${props => props.isHome ? "blanchedalmond" : "black"};
-  font-size: 30px;
+  font-size: 18px;
   text-align: center;
   line-height: 60px;
   text-decoration: none;
@@ -44,7 +44,7 @@ const NavButtonLink = styled.a`
   line-height: 60px;
   padding: auto;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 12px;
 
 
   &:hover {
@@ -61,7 +61,7 @@ const NavButtonLink = styled.a`
 const LogoutButton = styled.button`
   color: black;
   padding: 14px 28px;
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
   border: none;
   background: none;
@@ -100,7 +100,7 @@ const NavBar = ({isHome}) => {
 
     return (
         <Container>
-            <HomeButton isHome={isHome} href='#'>HELLO WATERSKI</HomeButton>
+            <HomeButton isHome={isHome} href='/'>HELLO WATERSKI</HomeButton>
             <NavContents>
                 <NavButtonLink isHome={isHome} href='#'>출석체크</NavButtonLink>
                 <NavButtonLink isHome={isHome} href='#'>게시판</NavButtonLink>
