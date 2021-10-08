@@ -62,7 +62,7 @@ const Line = () => {
 
     if (isLoading) {
         console.log('로오딩');
-        return <div>sibal</div>;
+        return <div>로딩</div>;
     }
 
 

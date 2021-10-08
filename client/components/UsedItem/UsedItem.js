@@ -64,7 +64,7 @@ const ItemInfo = styled.div`
 const ItemTitle = styled.span`
   font-weight: 600;
   color: #212529;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 18px;
   margin-top: 10px;
   white-space: nowrap;
@@ -73,13 +73,13 @@ const ItemTitle = styled.span`
 `;
 
 const ItemLocation = styled.span`
-  font-size: 14px;
+  font-size: 11px;
   color: #868e96
 `;
 const ItemPrice = styled.span`
   font-weight: 600;
   color: #ff8a3d;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 18px;
   margin-top: 6px;
 `;
@@ -98,7 +98,7 @@ const UsedItem = ({usedItem}) => {
                 <ItemInfo>
                     <ItemTitle>{itemTitle}</ItemTitle>
                     <ItemLocation>{itemLocation}</ItemLocation>
-                    <ItemPrice>{itemPrice}</ItemPrice>
+                    <ItemPrice>{itemPrice}원</ItemPrice>
                 </ItemInfo>
                 <Overlay>
                     <OverlayText>더 보기</OverlayText>

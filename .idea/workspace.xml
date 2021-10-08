@@ -5,46 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5b87f7d-8c51-49ec-bcd0-79ba549460a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/API.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.babelrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/Footer/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ServiceItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/Services.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/carousel/Button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/carousel/Carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/carousel/Item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/home/Intro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/images/ImageItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/images/ImageModall.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/images/Images.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/images/UploadModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/layout/Nav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/layout/NavBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/useditemdetail/UsedItemDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/usedmarket/SortingButtons.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/usedmarket/UsedItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/usedmarket/UsedItemList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/api/isLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/api/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/api/logout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/api/view/[id].js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/imagetalk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/line/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/login/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/useditem/[usedItemId].js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/useditem/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/usedmarket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/data/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/data/useditems.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/styles/font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/styles/global.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/utils/checkLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/utils/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/utils/logout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/utils/swrFetcher.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/db/userstest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/userstest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../electron_prac/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../electron_prac/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../electron_prac/render.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../electron_prac/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/SpotItem/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/usedmarket/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ts-prac/src/prac.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bengali.AI-Handwritten-Grapheme-Classification_Kaggle" beforeDir="false" afterPath="$PROJECT_DIR$/../Bengali.AI-Handwritten-Grapheme-Classification_Kaggle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DaFarm_project" beforeDir="false" afterPath="$PROJECT_DIR$/../DaFarm_project" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Measuring-the-degree-of-content-immersion_" beforeDir="false" afterPath="$PROJECT_DIR$/../Measuring-the-degree-of-content-immersion_" afterDir="false" />
@@ -67,17 +34,16 @@
       <change beforePath="$PROJECT_DIR$/../crawler" beforeDir="false" afterPath="$PROJECT_DIR$/../crawler" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../evrytime_emotion_prediction" beforeDir="false" afterPath="$PROJECT_DIR$/../evrytime_emotion_prediction" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Msg/MsgInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/message/MsgInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Msg/MsgItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/message/MsgItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Msg/MsgLIst.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/message/MsgLIst.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/fetcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/fetcher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/db/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/db/messagestest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/db/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/db/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/SpotList/SpotList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/SpotList/SpotList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/UsedItem/UsedItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/UsedItem/UsedItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/UsedItemList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/UsedItemList/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/UsedMarketSortingButton/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/UsedMarketSortingButton/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/UsedMarketSortingButton/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/UsedMarketSortingButton/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/imagetalk.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/imagetalk/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/line/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/line/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/usedmarket.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../inflearn-gql/client/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../inflearn-gql/client/pages/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sReact/back/.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../sReact/back/passport/index.js" beforeDir="false" />
@@ -159,11 +125,50 @@
       <workItem from="1631088828933" duration="69567000" />
       <workItem from="1632022916870" duration="73876000" />
       <workItem from="1632729613659" duration="33000" />
+      <workItem from="1633357980087" duration="200000" />
+      <workItem from="1633445474874" duration="1026000" />
+      <workItem from="1633683534010" duration="347000" />
     </task>
+    <task id="LOCAL-00001" summary="Feat: myTurn(내 차례) 찾는 기능 추가.">
+      <created>1633358164057</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633358164057</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Feat: currentWating(현재 앞에 대기 인원) 보여주는 기능 추가.">
+      <created>1633445526603</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633445526603</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Feat: login시 id정보를 sessionStorage에 저장하는 기능 추가.">
+      <created>1633445759128</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633445759128</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactor: style 코드 분리.">
+      <created>1633445825915</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633445825915</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feat: myTurn(내 차례) 찾는 기능 추가." />
+    <MESSAGE value="Feat: currentWating(현재 앞에 대기 인원) 보여주는 기능 추가." />
+    <MESSAGE value="Feat: login시 id정보를 sessionStorage에 저장하는 기능 추가." />
+    <MESSAGE value="Refactor: style 코드 분리." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor: style 코드 분리." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

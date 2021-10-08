@@ -9,15 +9,29 @@ const Row = styled.div`
   width: 80%;
   margin: 0 auto;
 
+
   &:after {
     content: "";
     display: table;
     clear: both;
-  }`;
+  }
+
+  @media screen and (max-width: 1300px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+`;
+
 const Col = styled.div`
   float: left;
   width: 50%;
   height: 100%;
+
+  @media screen and (max-width: 1300px) {
+    width: 35rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -28,10 +42,6 @@ const Title = styled.h1`
   font-weight: bold;
 `;
 
-const Explanation = styled.div`
-    
-`;
-
 
 const SpotList = ({allSpotData}) => {
 
@@ -39,16 +49,15 @@ const SpotList = ({allSpotData}) => {
         <>
             <Title>수상스키장 목록</Title>
 
-        <Row>
-        {allSpotData.map(oneSpotData => {
-            return (
-                <Col>
-                <SpotItem oneSpotData={oneSpotData}/>
-                </Col>
-            );
-
-            })}
-        </Row>
+            <Row>
+                {allSpotData.map(oneSpotData => {
+                    return (
+                        <Col>
+                            <SpotItem oneSpotData={oneSpotData}/>
+                        </Col>
+                    );
+                })}
+            </Row>
         </>
 
     );

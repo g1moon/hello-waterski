@@ -43,7 +43,7 @@ const Index = () => {
         <SortingButtonContainer onClick={_onClickSortingButton}>
             <SortingButton ref={$allButton}>전체</SortingButton>
             <SortingButton ref={$sellingButton}>판매중</SortingButton>
-            <SortingButton ref={$soldoutButton}>판매완료</SortingButton>
+            <SortingButton className={'last'} ref={$soldoutButton}>판매완료</SortingButton>
         </SortingButtonContainer>
     );
 };
