@@ -2,6 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/line/[spotId]": "pages/line/[spotId].js",
+  "/login": "pages/login.js",
   "/line": "pages/line.js",
-  "/imagetalk": "pages/imagetalk.js"
+  "/api/isLogin": "pages/api/isLogin.js"
 }
