@@ -14,13 +14,17 @@ const Container = styled.div`
 
 `;
 
-const LineList = ({oneSpotLineData}) => {
+const LineList = ({setAllLineData, oneSpotLineData}) => {
 
     return (
         <Container>
         {oneSpotLineData.map((oneLineData, index) => {
+            return <LineItem oneSpotLineData={oneSpotLineData}
+                             index={index+1}
+                             setAllLineData={setAllLineData}
+                             oneLineData={oneLineData}
+            />;
 
-            return <LineItem oneLineData={oneLineData} index={index+1}/>;
 
         })
         }
