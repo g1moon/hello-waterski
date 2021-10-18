@@ -22,7 +22,6 @@ const LineUploadModal = ({isOpenUploadModal,
                            setAllLineData,
                            setOneSpotLineData,
 }) => {
-  const $background = useRef(null);
   const $uploadForm = useRef(null);
 
   const [ridingType, setRidingType, onChangeRidingType] = useInput(null);
@@ -58,6 +57,7 @@ const LineUploadModal = ({isOpenUploadModal,
     resetInputs();
     closeModal();
     createNewLine();
+    alert('줄서기 등록이 완료 되었습니다.');
   }, [ridingType, boatType]);
 
   return (
