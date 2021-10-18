@@ -9,16 +9,17 @@ import ImageModall from '../../components/ImageModall/ImageModall';
 const UploadButton = styled.button`
   background-color: #04AA6D;
   color: white;
-  margin: 8px 0;
+  margin: 0.5rem 0 1.5rem 0;
   border: none;
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 0.8;
   text-align: center;
-  width: 10%;
   position: relative;
   width: 100%;
+  height: 70%;
   padding: 20px 20px;
   border-radius: 10px;
+  font-size: 1rem;
 
   &:hover {
     opacity: 1;
@@ -39,7 +40,7 @@ const BodyBlackoutStyle = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .85);
+  background-color: rgba(0, 0, 0, .6);
   display: ${props => props.isOpenModal ? 'block' : 'none'};
 `;
 
@@ -47,6 +48,7 @@ const ImagetalkContainer = styled.div`
   margin: 0 300px 0 300px;
   
 `;
+
 
 
 const Index = () => {
@@ -81,19 +83,17 @@ const Index = () => {
         setClickedImageInfo({url, text, title});
     };
 
-
     //clickedImageInfo 가 변경되면 -> modal 변경
     useEffect(() => {
         console.log('dd', clickedImageInfo);
     }, [clickedImageInfo]);
-
 
     return (
         <>
             <Global/>
             <BodyBlackoutStyle ref={$blackout} isOpenModal={isActiveBlackout} onClick={_onClickBlackout}/>
             <Container>
-                <NavBar isHome={false}></NavBar>
+                <NavBar isHome={false}/>
                 <ImagetalkContainer>
                 <h1>전국 스키장 현황</h1>
                 <UploadButton onClick={_onClickUpload}>Upload</UploadButton>
@@ -104,10 +104,12 @@ const Index = () => {
             </Container>
             <UploadModal isOpenUploadModal={isOpenUploadModal}
                          setIsOpenUploadMdal={setIsOpenUploadMdal}
+                         setIsActiveBlackout={setIsActiveBlackout}
+
             />
             {clickedImageInfo &&
             <ImageModall isOpenImageModal={isOpenImageModal}
-                         clickedImageInfo={clickedImageInfo}></ImageModall>
+                         clickedImageInfo={clickedImageInfo}/>
             }
         </>
     )
