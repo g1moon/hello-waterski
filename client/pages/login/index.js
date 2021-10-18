@@ -71,8 +71,6 @@ const LoginPage = () => {
         e.preventDefault();
         e.target.name === 'id' ? setLoginId(e.target.value) : setLoginPassword(e.target.value);
     };
-
-
     return (
         <Container>
             <LoginForm onSubmit={_onSubmitLogin}>
