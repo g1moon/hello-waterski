@@ -6,7 +6,6 @@ import checkLogin from '../utils/checkLogin'
 import logout from '../utils/logout';
 
 const Container = styled.div`
-  background-color: none;
   z-index: 100;
   display: flex;
   justify-content: space-between;
@@ -25,12 +24,16 @@ const NavContents = styled.div`
 
 const HomeButton = styled.a`
   font-weight: bold;
-  //color: blanchedalmond;
   color: ${props => props.isHome ? "blanchedalmond" : "black"};
-  font-size: 18px;
+  font-size: 25px;
   text-align: center;
   line-height: 60px;
   text-decoration: none;
+  transition: opacity .5s;
+
+  &:hover {
+    opacity: 0.3;
+  }
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -42,14 +45,12 @@ const NavButtonLink = styled.a`
   padding: 0px 16px;
   vertical-align: middle;
   line-height: 60px;
-  padding: auto;
   text-decoration: none;
-  font-size: 12px;
-
+  font-size: 15px;
+  transition: opacity .5s;
 
   &:hover {
-    background-color: #ddd;
-    color: black;
+    opacity: 0.3;
   }
 
   &.active {
@@ -61,13 +62,14 @@ const NavButtonLink = styled.a`
 const LogoutButton = styled.button`
   color: black;
   padding: 14px 28px;
-  font-size: 12px;
+  font-size: 15px;
   cursor: pointer;
   border: none;
   background: none;
-  
+  transition: opacity .5s;
+
   &:hover {
-    background-color: #04AA6D;
+    opacity: 0.3;
   }
 `;
 const LoginButton = styled.button`
@@ -86,36 +88,33 @@ const LoginButton = styled.button`
 
 const NavBar = ({isHome}) => {
 
-    const [isLogin, setIsLogin] = useState(null);
+  const [isLogin, setIsLogin] = useState(null);
+
+  useEffect(() => {
+    checkLogin(setIsLogin);
+  }, []);
 
 
-    useEffect(() => {
-        checkLogin(setIsLogin);
-    }, []);
+  if (isLogin === null) {
+    return <div></div>;
+  }
 
+  return (
+    <Container>
+      <HomeButton isHome={isHome} href='/'>HELLO WATERSKI</HomeButton>
+      <NavContents>
+        <NavButtonLink isHome={isHome} href='#'>출석체크</NavButtonLink>
+        <NavButtonLink isHome={isHome} href='/imagetalk'>게시판</NavButtonLink>
+        <NavButtonLink isHome={isHome} href='/usedmarket'>중고장터</NavButtonLink>
+        <NavButtonLink isHome={isHome} href='/line'>줄서기</NavButtonLink>
+        {isLogin
+          ? <Link href='/'><LogoutButton onClick={() => logout(setIsLogin)}>Logout</LogoutButton></Link>
+          : <Link href='/login'><LoginButton>Login</LoginButton></Link>
+        }
+      </NavContents>
+    </Container>
 
-    if (isLogin === null) {
-        return <div></div>;
-    }
-
-    return (
-        <Container>
-            <HomeButton isHome={isHome} href='/'>HELLO WATERSKI</HomeButton>
-            <NavContents>
-                <NavButtonLink isHome={isHome} href='#'>출석체크</NavButtonLink>
-                <NavButtonLink isHome={isHome} href='#'>게시판</NavButtonLink>
-                <NavButtonLink isHome={isHome} href='/imagetalk'>스키장현황</NavButtonLink>
-                <NavButtonLink isHome={isHome} href='/usedmarket'>중고장터</NavButtonLink>
-                <NavButtonLink isHome={isHome} href='/line'>줄서기</NavButtonLink>
-                {isLogin
-                    ? <Link href='/'><LogoutButton onClick={() => logout(setIsLogin)}>Logout</LogoutButton></Link>
-                    : <Link href='/login'><LoginButton>Login</LoginButton></Link>
-                }
-
-            </NavContents>
-        </Container>
-
-    );
+  );
 };
 
 export default NavBar;
