@@ -26,11 +26,11 @@ const LineItem = ({setAllLineData, oneLineData, index}) => {
         //spotId 와 userId가 일치하면 -> 삭제
         setAllLineData(allLineData => {
             const targetIndex = allLineData.findIndex(line => line.userId === userId && line.spotId);
-            allLineData.slice(targetIndex, 1);
             const newAllLineData = [...allLineData];
             newAllLineData.splice(targetIndex, 1);
             return newAllLineData;
         });
+        alert('줄서기 등록이 취소 되었습니다.');
     };
 
     return (
