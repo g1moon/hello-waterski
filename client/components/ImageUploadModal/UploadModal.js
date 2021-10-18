@@ -1,106 +1,18 @@
-import styled from "styled-components";
-import {useEffect, useRef} from 'react';
-//
-// const Container = styled.div`
-//   height: 100%;
-//   width: 100%;
-//   background-color: #fff;
-//   position: fixed;
-//   left: 50%;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-//   padding: 45px;
-//   display: block;
-//   z-index: 10000000;
-//   display: ${props => props.isOpenModal ? "block" : "none"};
-//   pointer-events: ${props => props.isOpenModal ? "auto" : "none"};
-// `;
-
-const Modal = styled.div`
-  display: ${props => props.isOpenModal ? "block" : "none"};
-  position: fixed;
-  z-index: 100000000;
-  left: 0;
-  top: 0;
-  background-color: #474e5d;
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-`;
-
-const UploadForm = styled.form`
-  //modal-content
-  display: ${props => props.isOpenModal ? "block" : "none"};
-  position: relative;
-  z-index: 100000000;
-  overflow: auto;
-  background-color: #fefefe;
-  margin: 5% auto 15% auto;
-  width: 80%;
-  border: 1px solid #888;
-`;
-const InnerFormContainer = styled.div`
-  //container
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-`;
-
-
-const FormHead = styled.h1``;
-
-//label
-const Label = styled.label``;
-/*----------------Input------------------*/
-const Input = styled.input`
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-
-  &:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-`;
-
-const TitleInput = styled(Input)``;
-const ContentTextarea = styled.textarea`
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-
-  &:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-`;
-const LocationInput = styled(Input)``;
-;
-const ImageInput = styled(Input)``;
-
-/*-----------button-----------------*/
-const ButtonContainer = styled.div`;
-`;
-const Button = styled.button`
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-
-  &:hover {
-    opacity: 1;
-  }
-`;
+import {useEffect, useRef, useState} from 'react';
+import {
+  Container,
+  UploadForm,
+  InnerFormContainer,
+  FormHead,
+  Label,
+  TitleInput,
+  LocationInput,
+  ButtonContainer,
+  CancelButton,
+  SubmitButton,
+  ImageInput, ContentTextarea, ImagePreview,
+} from './styles';
+import useInput from "../../hooks/useInput";
 
 const UploadModal = ({isOpenUploadModal ,setIsOpenUploadMdal, setIsActiveBlackout}) => {
   const $uploadForm = useRef(null);
