@@ -102,57 +102,88 @@ const Button = styled.button`
   }
 `;
 
-const CancelButton = styled(Button)`
-  float: left;
-  width: 50%;
-  padding: 14px 20px;
-  background-color: #f44336;
-`;
-const SubmitButton = styled(Button)`
-  float: left;
-  width: 50%;
-  padding: 14px 20px;
-  background-color: #04AA6D;
-`;
+const UploadModal = ({isOpenUploadModal ,setIsOpenUploadMdal, setIsActiveBlackout}) => {
+  const $uploadForm = useRef(null);
 
+  const [title, setTitle, onChangeTitle] = useInput('');
+  const [location, setLocation, onChangeLocation] = useInput('');
+  const [contents, setContents, onChangeContents] = useInput('');
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
-const UploadModal = ({isOpenUploadModal, setIsOpenUploadMdal}) => {
-    const $background = useRef(null);
-    const $uploadForm = useRef(null);
+  const resetAllInputs = () => {
+    setTitle('');
+    setLocation('');
+    setContents('');
+    setImageFile(null);
+    setImagePreview(null);
+  };
 
+  const closeModal = () => {
+    setIsOpenUploadMdal(false);
+    setIsActiveBlackout(false);
+    resetAllInputs();
+  };
 
-    const _closeModal = () => {
-        console.log('click butto');
+  const onChangeImageFile = (e) => {
+    setImageFile(e.target.files[0]);
+    const reader = new FileReader();
+
+    // 1. 파일 읽고 버퍼에 저장.
+    reader.readAsDataURL(e.target.files[0]);
+    // 2. 읽기가 완료되면 아래 코드 실행.
+    reader.onloadend = () => {
+      const image = reader.result; //파일 비트맵 데이터(이거로 미리보기 가능)
+      const imageString = image.toString(); //비트맵 데이터 저장 가능하게 스트링으로 변경.
+      setImagePreview(imageString); //preview image 설정
     };
+  };
 
-    return (
-        <>
-            <UploadForm ref={$uploadForm} isOpenModal={isOpenUploadModal}>
-                <InnerFormContainer>
-                    <FormHead>이미지 업로드</FormHead>
-                    <p>빈간에 알맞는 정보를 넣어주세요.</p>
-                    <hr/>
-                    <Label><b>Title</b></Label>
-                    <TitleInput placeholder='제목을 입력하세요.' type='text'></TitleInput>
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('image', imageFile);
+    closeModal();
+  };
 
-                    <Label><b>Content</b></Label>
-                    <ContentTextarea placeholder='타이틀을 입력하세요.'></ContentTextarea>
+  useEffect(() => {
+    console.log('imagePreview', imagePreview);
+  }, [imageFile, imagePreview]);
 
-                    <Label><b>Location</b></Label>
-                    <LocationInput placeholder='위치(수상스키장)를 입력하세요.' type='text'></LocationInput>
 
-                    <Label><b>Image</b></Label>
-                    <LocationInput placeholder='이미지를 업로드하세요' type='text'></LocationInput>
 
-                    <ButtonContainer>
-                        <CancelButton><b>Cancel</b></CancelButton>
-                        <SubmitButton><b>Submit Image</b></SubmitButton>
-                    </ButtonContainer>
-                </InnerFormContainer>
-            </UploadForm>
+  return (
+    <Container>
+      <UploadForm ref={$uploadForm} isOpenModal={isOpenUploadModal} onSubmit={onSubmit} encType="multipart/form-data">
+        <InnerFormContainer>
+          <FormHead>이미지 업로드</FormHead>
+          <hr/>
+          <Label><b>Title</b></Label>
+          <TitleInput placeholder='제목을 입력하세요.' value={title} onChange={onChangeTitle} type='text'/>
 
-        </>
-    );
+          <Label><b>Location</b></Label>
+          <LocationInput placeholder='위치(수상스키장)를 입력하세요.' type='text' value={location} onChange={onChangeLocation}/>
+
+          <Label><b>Contents</b></Label>
+          <ContentTextarea placeholder='내용을 입력하세요.' value={contents} onChange={onChangeContents}/>
+
+          <Label for='myFile'><b>Image</b></Label>
+          <ImageInput type="file"
+                      id="myFile"
+                      name="image"
+                      accept="image/*"
+                      onChange={onChangeImageFile}/>
+
+          {imagePreview !== null && <ImagePreview src={imagePreview} alt={'image preview'}/>}
+
+          <ButtonContainer>
+            <CancelButton><b>Cancel</b></CancelButton>
+            <SubmitButton onClick={onSubmit}><b>Submit Image</b></SubmitButton>
+          </ButtonContainer>
+        </InnerFormContainer>
+      </UploadForm>
+    </Container>
+  );
 };
 
 export default UploadModal;
