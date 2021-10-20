@@ -85,8 +85,8 @@ const ItemPrice = styled.span`
 `;
 
 const UsedItem = ({usedItem}) => {
-    const {usedItemId,userId, userName, itemState, itemPrice, itemLocation, imageUrl, text, itemTitle} = usedItem;
-    console.log(usedItemId);
+
+    const {usedItemId, userId, userName, itemState, itemPrice, itemLocation, imageUrl, text, itemTitle} = usedItem;
     return (
         <Link
             href={{
