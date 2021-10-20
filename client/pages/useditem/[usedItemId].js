@@ -30,8 +30,6 @@ const imageitem = ({query}) => {
 
     return (
         <>
-            <GlobalStyle/>
-            <NavBar/>
             <UsedItemDetail></UsedItemDetail>
         </>
 
