@@ -8,36 +8,39 @@ import {
 } from './styles';
 import TopSpotsList from "../TopSpotsList/TopSpotsList";
 
-
 const Index = () => {
 
     const [allUsedItemData, setAllUsedItemsData] = useState([]);
 
-    const getUsedItemsData = async () => {
-        const data = await fetcher('get', '/data/useditems.json');
+    const getAndSetUsedItemsData = async () => {
+        const data = await fetcher('get', '/useditems');
         setAllUsedItemsData(data);
     }
 
-
     //처음에 데이터 받아와서 등록.
     useEffect(() => {
-        getUsedItemsData();
+        getAndSetUsedItemsData();
     }, []);
+
+    useEffect(() => {
+
+    }, [allUsedItemData]);
 
 
     return (
-        <>
-            <Row>
-                {allUsedItemData.map(usedItem =>
-                    (
-                        <Colum>
-                                <UsedItem usedItem={usedItem}/>
-                        </Colum>
-                    ))
-
-                }
-            </Row>
-        </>
+      <>
+          <Row>
+              {allUsedItemData.map(usedItem => {
+                  console.log(usedItem);
+                  return (
+                    <Colum>
+                        <UsedItem usedItem={usedItem}/>
+                    </Colum>
+                  )
+              })
+              }
+          </Row>
+      </>
     );
 };
 
