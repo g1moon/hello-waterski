@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  
 `;
 
 export const UploadForm = styled.form`
@@ -11,7 +14,7 @@ export const UploadForm = styled.form`
   overflow: auto;
   background-color: #fefefe;
   margin: 5% auto 15% auto;
-  width:80%;
+  width: 40%;
   height: 70%;
   border: 1px solid #888;
   position: fixed;
@@ -25,6 +28,7 @@ export const InnerFormContainer = styled.div`
   padding: 16px;
   display: flex;
   flex-direction: column;
+  
 `;
 
 
@@ -34,6 +38,7 @@ export const FormHead = styled.h1``;
 export const Label = styled.label``;
 /*----------------Input------------------*/
 export const Input = styled.input`
+
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -55,7 +60,7 @@ export const ContentTextarea = styled.textarea`
   display: inline-block;
   border: none;
   background: #f1f1f1;
-  height: 10rem;
+  height: 5rem;
 
   &:focus {
     background-color: #ddd;
@@ -86,7 +91,7 @@ export const ImageLabel = styled.label`
   font-weight: 400;
   box-shadow: 0 1px 1px gray;
 `;
-export const ImageInput = styled.input`
+export const ImageInput = styled(Input)`
 `;
 
 export const ImagePreview = styled.img`
@@ -98,6 +103,7 @@ export const ImagePreview = styled.img`
 
 /*-----------button-----------------*/
 export const ButtonContainer = styled.div`;
+
 `;
 export const Button = styled.button`
   background-color: #04AA6D;
@@ -106,7 +112,6 @@ export const Button = styled.button`
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
   opacity: 0.9;
 
   &:hover {

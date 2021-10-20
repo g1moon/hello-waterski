@@ -16,6 +16,7 @@ export const Row = styled.div`
 export const Colum = styled.div`
   float: left;
   width: 33.33%;
+  height: auto;
 
   @media screen and (max-width: 1024px){
     width: 50%;
@@ -23,7 +24,7 @@ export const Colum = styled.div`
 
   @media screen and (max-width: 768px){
     display: flex;
-    width: 60%;
+    width: 80%;
   }
   
 

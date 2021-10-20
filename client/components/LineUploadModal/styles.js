@@ -35,6 +35,7 @@ export const FormHead = styled.h1`
 export const Label = styled.label`
   font-size: 0.8rem;
 `;
+
 /*----------------Input------------------*/
 export const Input = styled.input`
   width: 100%;
@@ -51,22 +52,9 @@ export const Input = styled.input`
 `;
 
 export const RidingTypeInput = styled(Input)``;
-export const BoatTypeInput = styled.input`
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
 
-  &:focus {
-    background-color: #ddd;
-    outline: none;
-  }
+export const BoatTypeInput = styled(Input)`
 `;
-export const LocationInput = styled(Input)``;
-;
-export const ImageInput = styled(Input)``;
 
 /*-----------button-----------------*/
 export const ButtonContainer = styled.div`;
