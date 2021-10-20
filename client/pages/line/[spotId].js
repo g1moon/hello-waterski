@@ -68,7 +68,7 @@ const spotLine = ({query}) => {
   //이 아이디에 맞는 데이터를 찾아야함
 
   const spotId = router.query.spotId;
-  console.log(spotId);
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
