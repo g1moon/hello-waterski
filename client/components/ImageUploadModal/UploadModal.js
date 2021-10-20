@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 import {
   Container,
   UploadForm,
@@ -13,8 +13,10 @@ import {
   ImageInput, ContentTextarea, ImagePreview,
 } from './styles';
 import useInput from "../../hooks/useInput";
+import axios from "axios";
+import fetcher from "../../utils/fetcher";
 
-const UploadModal = ({isOpenUploadModal ,setIsOpenUploadMdal, setIsActiveBlackout}) => {
+const UploadModal = ({isOpenUploadModal, setIsOpenUploadMdal, setIsActiveBlackout, setImages}) => {
   const $uploadForm = useRef(null);
 
   const [title, setTitle, onChangeTitle] = useInput('');
@@ -22,6 +24,7 @@ const UploadModal = ({isOpenUploadModal ,setIsOpenUploadMdal, setIsActiveBlackou
   const [contents, setContents, onChangeContents] = useInput('');
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const imagePath = useRef('');
 
   const resetAllInputs = () => {
     setTitle('');
@@ -38,7 +41,7 @@ const UploadModal = ({isOpenUploadModal ,setIsOpenUploadMdal, setIsActiveBlackou
   };
 
   const onChangeImageFile = (e) => {
-    setImageFile(e.target.files[0]);
+    setImageFile(prev => e.target.files[0]);
     const reader = new FileReader();
 
     // 1. 파일 읽고 버퍼에 저장.
@@ -51,22 +54,46 @@ const UploadModal = ({isOpenUploadModal ,setIsOpenUploadMdal, setIsActiveBlackou
     };
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const saveImage = async () => {
     const formData = new FormData();
-    formData.append('image', imageFile);
-    closeModal();
+    formData.append("img", imageFile);
+    await axios
+    .post("/saveImage", formData)
+    .then(res => {
+      const {fileName} = res.data;
+      imagePath.current = `http://localhost:8000/img/${fileName}`;
+      alert("성공적으로 업로드 하였습니다.");
+    })
+    .catch(err => {
+      console.error(err);
+    });
   };
 
-  useEffect(() => {
-    console.log('imagePreview', imagePreview);
-  }, [imageFile, imagePreview]);
+  const createNewPost = async () => {
+    const userId = sessionStorage.getItem('userId');
+    const imageUrl = imagePath.current;
+    const objForPost = {title: title, contents, location, imageUrl, userId}
+    const newPost = await fetcher('post', '/images', objForPost);
+    setImages(prev => [newPost, ...prev]);
+  };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    await saveImage();
+    await createNewPost()
+    closeModal();
+    resetAllInputs();
+  };
 
 
   return (
     <Container>
-      <UploadForm ref={$uploadForm} isOpenModal={isOpenUploadModal} onSubmit={onSubmit} encType="multipart/form-data">
+      <UploadForm ref={$uploadForm}
+                  isOpenModal={isOpenUploadModal}
+                  onSubmit={onSubmit}
+                  encType="multipart/form-data"
+                  method="post"
+      >
         <InnerFormContainer>
           <FormHead>이미지 업로드</FormHead>
           <hr/>
@@ -79,12 +106,13 @@ const UploadModal = ({isOpenUploadModal ,setIsOpenUploadMdal, setIsActiveBlackou
           <Label><b>Contents</b></Label>
           <ContentTextarea placeholder='내용을 입력하세요.' value={contents} onChange={onChangeContents}/>
 
-          <Label for='myFile'><b>Image</b></Label>
-          <ImageInput type="file"
-                      id="myFile"
-                      name="image"
-                      accept="image/*"
-                      onChange={onChangeImageFile}/>
+          <Label for='imageFile'><b>Image</b></Label>
+          <ImageInput type='file'
+                      id='imageFile'
+                      name='image'
+                      accept='image/*'
+                      onChange={onChangeImageFile}
+          />
 
           {imagePreview !== null && <ImagePreview src={imagePreview} alt={'image preview'}/>}
 
