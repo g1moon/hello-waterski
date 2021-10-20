@@ -27,7 +27,8 @@ const LineUploadModal = ({isOpenUploadModal,
   const [boatType, setBoatType, onChangeBoatType] = useInput(null);
   const [userName, setUserName, onChangeUserName] = useInput(null);
 
-  const resetInputs = useCallback(() => {
+  const resetAllInputs = useCallback(() => {
+    setUserName('');
     setRidingType('');
     setBoatType('');
   }, [setRidingType, setBoatType])
@@ -39,13 +40,6 @@ const LineUploadModal = ({isOpenUploadModal,
 
   const createNewLine = async () => {
     const userId = sessionStorage.getItem('userId');
-    // const objForPost = {
-    //   'userId': sessionStorage.getItem('userId'),
-    //   'userName': 'username',
-    //   'spotId': spotId,
-    //   'boatType': boatType,
-    //   'ridingType': ridingType,
-    // };
     const objForPost = {userId, userName, spotId, boatType, ridingType};
     const newLine = await fetcher('post', '/lines', objForPost);
     if (!newLine) return Error('줄을 등록하는데 에러가 발생했습니다.');
@@ -53,9 +47,15 @@ const LineUploadModal = ({isOpenUploadModal,
     setAllLineData(prev => [...prev, newLine]);
   }
 
+  const onClickCancle = (e) => {
+    e.preventDefault();
+    resetAllInputs();
+    closeModal();
+  };
+
   const onSubmitNewLine = async (e) => {
     e.preventDefault();
-    resetInputs();
+    resetAllInputs();
     closeModal();
     createNewLine();
     alert('줄서기 등록이 완료 되었습니다.');
@@ -84,7 +84,7 @@ const LineUploadModal = ({isOpenUploadModal,
                          onChange={onChangeBoatType}
           />
           <ButtonContainer>
-            <CancelButton><b>Cancel</b></CancelButton>
+            <CancelButton onClick={onClickCancle}><b>Cancel</b></CancelButton>
             <SubmitButton onClick={onSubmitNewLine}><b>Submit</b></SubmitButton>
           </ButtonContainer>
         </InnerFormContainer>
