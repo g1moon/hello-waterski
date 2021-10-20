@@ -7,6 +7,12 @@ import UploadModal from '../../components/ImageUploadModal/UploadModal';
 import ImageModall from '../../components/ImageModall/ImageModall';
 import fetcher from "../../utils/fetcher";
 
+
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const UploadButton = styled.button`
   background-color: #04AA6D;
   color: white;
@@ -14,14 +20,12 @@ const UploadButton = styled.button`
   cursor: pointer;
   opacity: 0.8;
   text-align: center;
-  position: relative;
   width: 100%;
   height: 70%;
   padding: 20px 20px;
   border-radius: 10px;
   font-size: 1rem;
-  margin: 0 auto;
-
+  margin-bottom: 3rem;
 
   &:hover {
     opacity: 1;
@@ -108,7 +112,10 @@ const Index = () => {
         <Container>
           <ImagetalkContainer>
             <h1>전국 스키장 현황</h1>
-            <UploadButton onClick={_onClickUpload}>Upload</UploadButton>
+            <ButtonContainer>
+              <UploadButton onClick={_onClickUpload}>Upload</UploadButton>
+            </ButtonContainer>
+
             <Images images={images} _onClickImage={_onClickImage}/>
           </ImagetalkContainer>
         </Container>
