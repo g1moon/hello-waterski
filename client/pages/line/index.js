@@ -29,7 +29,7 @@ const Line = () => {
 
     //모든 spot데이터 가져오기
     const getAllSpotData = async () => {
-        const data = await fetcher('get', '/data/spot.json');
+        const data = await fetcher('get', '/spots');
         setAllSpotData(data);
     };
 
@@ -69,8 +69,6 @@ const Line = () => {
 
     return (
         <>
-            <GlobalStyle/>
-            <NavBar/>
             <SearchBar/>
             <TopSpotsList topThreeSpot={topThreeSpot}/>
             <CarouselContainer>

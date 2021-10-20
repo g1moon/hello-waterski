@@ -5,14 +5,14 @@ import NavBar from '../layout/NavBar';
 import GlobalStyle from '../styles/global';
 import Intro from '../components/home/Intro';
 import Header from '../components/Header/Header';
+import fetcher from "../utils/fetcher";
 
 const Home = () => {
-    return (
-        <>
-            <GlobalStyle/>
-                <Header/>
-        </>
-    );
+  return (
+    <>
+      <Header/>
+    </>
+  );
 };
 
 export default Home; 
