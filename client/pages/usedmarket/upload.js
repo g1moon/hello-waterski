@@ -162,7 +162,6 @@ const upload = () => {
     .then(res => {
       const {fileName} = res.data;
       imagePath.current = `http://localhost:8000/img/${fileName}`;
-      alert("성공적으로 업로드 하였습니다.");
     })
     .catch(err => {
       console.error(err);
@@ -182,7 +181,13 @@ const upload = () => {
       imageUrl,
     }
     const newItem = await fetcher('post', '/useditems', objForPost);
-    // // setImages(prev => [newPost, ...prev]);
+  };
+
+  const onClickCancel = (e) => {
+    e.preventDefault();
+    resetAllInputs();
+    alert('아이템 등록을 취소합니다.');
+    router.push('/usedmarket');
   };
 
   const onSubmit = async (e) => {
@@ -190,6 +195,7 @@ const upload = () => {
     await saveImage();
     await createNewPost()
     resetAllInputs();
+    alert('아이템 등록을 성공하셨습니다.');
     router.push('/usedmarket');
   };
 
@@ -225,7 +231,7 @@ const upload = () => {
             <Label><b>Description</b></Label>
             <DescriptionInput onChange={onChangeDescription}/>
             <ButtonContainer>
-              <CancelButton><b>Cancel</b></CancelButton>
+              <CancelButton onClick={onClickCancel}><b>Cancel</b></CancelButton>
               <SubmitButton onClick={onSubmit}><b>Submit</b></SubmitButton>
             </ButtonContainer>
           </InnerFormContainer>
