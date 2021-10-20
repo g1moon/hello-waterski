@@ -4,6 +4,7 @@ import {ImageInput, ImagePreview} from "../../components/ImageUploadModal/styles
 import useInput from "../../hooks/useInput";
 import axios from "axios";
 import fetcher from "../../utils/fetcher";
+import {useRouter} from "next/router";
 
 const Container = styled.div`
   width: 50%;
@@ -116,6 +117,8 @@ const upload = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const imagePath = useRef('');
 
+  const router = useRouter();
+
   const getAndSetUsedItems = async () => {
     const data = await fetcher('get', '/useditems');
     setUsedItems(data);
@@ -179,7 +182,7 @@ const upload = () => {
       imageUrl,
     }
     const newItem = await fetcher('post', '/useditems', objForPost);
-    // setImages(prev => [newPost, ...prev]);
+    // // setImages(prev => [newPost, ...prev]);
   };
 
   const onSubmit = async (e) => {
@@ -187,6 +190,7 @@ const upload = () => {
     await saveImage();
     await createNewPost()
     resetAllInputs();
+    router.push('/usedmarket');
   };
 
   useEffect(() => {
