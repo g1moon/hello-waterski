@@ -15,7 +15,7 @@ export const UploadForm = styled.form`
   background-color: #fefefe;
   margin: 5% auto 15% auto;
   width: 70%;
-  height: 100%;
+  height: 40rem;
   border: 1px solid #888;
   position: fixed;
   top: 0;

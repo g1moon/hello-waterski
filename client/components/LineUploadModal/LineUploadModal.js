@@ -25,6 +25,7 @@ const LineUploadModal = ({isOpenUploadModal,
 
   const [ridingType, setRidingType, onChangeRidingType] = useInput(null);
   const [boatType, setBoatType, onChangeBoatType] = useInput(null);
+  const [userName, setUserName, onChangeUserName] = useInput(null);
 
   const resetInputs = useCallback(() => {
     setRidingType('');
@@ -38,26 +39,27 @@ const LineUploadModal = ({isOpenUploadModal,
 
   const createNewLine = async () => {
     const userId = sessionStorage.getItem('userId');
-    const newLine = {
-      'userId': sessionStorage.getItem('userId'),
-      'userName': 'username',
-      'spotId': spotId,
-      'boatType': boatType,
-      'ridingType': ridingType,
-    }
-    // const newLine = await fetcher('post', '/data/lines.json', newLineInfo);
-    // if (!newLine) return Error('줄을 등록하는데 에러가 발생했습니다.');
+    // const objForPost = {
+    //   'userId': sessionStorage.getItem('userId'),
+    //   'userName': 'username',
+    //   'spotId': spotId,
+    //   'boatType': boatType,
+    //   'ridingType': ridingType,
+    // };
+    const objForPost = {userId, userName, spotId, boatType, ridingType};
+    const newLine = await fetcher('post', '/lines', objForPost);
+    if (!newLine) return Error('줄을 등록하는데 에러가 발생했습니다.');
+    console.log(`newLine : ${newLine}`);
     setAllLineData(prev => [...prev, newLine]);
   }
 
-  const onSubmitNewLine = useCallback((e) => {
+  const onSubmitNewLine = async (e) => {
     e.preventDefault();
-    console.log(ridingType, boatType);
     resetInputs();
     closeModal();
     createNewLine();
     alert('줄서기 등록이 완료 되었습니다.');
-  }, [ridingType, boatType]);
+  };
 
   return (
     <Container>
@@ -65,6 +67,11 @@ const LineUploadModal = ({isOpenUploadModal,
         <InnerFormContainer>
           <FormHead>줄서기 등록</FormHead>
           <hr/>
+          <Label><b>User Name</b></Label>
+          <RidingTypeInput placeholder='ex) HONG GIL DONG'
+                           type='text'
+                           value={userName}
+                           onChange={onChangeUserName}/>
           <Label><b>Riding Type</b></Label>
           <RidingTypeInput placeholder='ex) one-ski, wake-board'
                            type='text'
