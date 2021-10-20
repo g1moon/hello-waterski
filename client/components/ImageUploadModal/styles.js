@@ -14,8 +14,8 @@ export const UploadForm = styled.form`
   overflow: auto;
   background-color: #fefefe;
   margin: 5% auto 15% auto;
-  width: 40%;
-  height: 70%;
+  width: 70%;
+  height: 100%;
   border: 1px solid #888;
   position: fixed;
   top: 0;
@@ -28,7 +28,6 @@ export const InnerFormContainer = styled.div`
   padding: 16px;
   display: flex;
   flex-direction: column;
-  
 `;
 
 

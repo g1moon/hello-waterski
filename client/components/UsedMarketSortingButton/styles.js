@@ -1,39 +1,34 @@
 import styled from "styled-components";
 
-export const SortingButtonContainer = styled.div`
-  margin-bottom: 20px;
+export const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
-  @media screen and (max-width: 1024px){
+export const ButtonContainer = styled.div`
+  margin-bottom: 3rem;
+
+  @media screen and (max-width: 1024px) {
     display: flex;
     justify-content: center;
   }
-    
+
 `;
 
-export const SortingButton = styled.button`
+export const Button = styled.button`
   cursor: pointer;
   width: 80px;
-  height: 30px;
-  background-color: rgba(246, 250, 225, 0.99);
+  height: 2.7rem;
+  font-size: 16px;
+  margin-right: 0.5px;
   color: black;
-  border: 1px solid silver;
-  opacity: 0.8;
-  font-size: 13px;
-  border-right: 0;
-
-
-  &:hover {
-    opacity: 1;
-    background-color: navajowhite;
-  }
+  background-color: white;
+  border: none;
 
   &.active {
-    opacity: 1;
-    background-color: navajowhite;
-
+    font-weight: bold;
+    color: green;
+    border-bottom: 3px solid green;
   }
 
-  &.last {
-    border-right: 1px solid silver;
-  }
 `;
