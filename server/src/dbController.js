@@ -4,8 +4,10 @@ import { resolve } from 'path'
 const basePath = resolve()
 
 const filenames = {
-    messages: resolve(basePath, 'src/db/messages.json'),
-    users: resolve(basePath, 'src/db/users.json'),
+    lines: resolve(basePath, 'src/db/lines.json'),
+    spots: resolve(basePath, 'src/db/spots.json'),
+    useditems: resolve(basePath, 'src/db/useditems.json'),
+    images: resolve(basePath, 'src/db/images.json'),
 }
 
 //Json이엇던 것을 풀어서 -> 인코딩 명시 해줘야함.
