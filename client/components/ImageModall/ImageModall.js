@@ -47,13 +47,13 @@ const ContentsContainer = styled.div`
 const ImageModall = ({isOpenImageModal, clickedImageInfo}) => {
 
     console.log('Modal:', clickedImageInfo);
-    const {title, text, url} = clickedImageInfo;
+    const {title, text, url, location, userId} = clickedImageInfo;
     return (
         <Modal isOpenModal={isOpenImageModal}>
             <HeaderContainer>
             <ImageTitle>{title}</ImageTitle>
-                <span><b>위치: 쎄시봉수상스키장</b></span>
-                <span><b>작성자: helloworld</b></span>
+                <span><b>위치: {location}</b></span>
+                <span><b>작성자: {userId}</b></span>
             </HeaderContainer>
             <ImageContainer>
                 <Image src={url}></Image>
