@@ -1,75 +1,67 @@
 import ImageItem from '../ImageItem/ImageItem';
 import styled from 'styled-components';
+import {useEffect, useState} from "react";
+import axios from "axios";
+import fetcher from "../../utils/fetcher";
+
+// const Row = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding: 0 4px;
+// `;
 
 const Row = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-  
+  content: "";
+  display: table;
+  clear: both;
+  margin: 0 auto;
 
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 `;
+
 const Col = styled.div`
   float: left;
   width: 33.33%;
+  height: 100%;
+
+  @media screen and (max-width: 1400px) {
+    display: flex;
+    width: 50%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    
+  }
 `;
-const Images = ({_onClickImage}) => {
+const Images = ({_onClickImage, images}) => {
 
-    const imagesInfo = [
-        {
-            url: 'https://i.ibb.co/fQ6rFtT/Screen-Shot-2021-09-10-at-3-26-49-PM.png',
-            title: 'Image Title1',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n'
-        },
-        {
-            url: 'https://user-images.githubusercontent.com/44131043/132935964-ceb9b3ba-6540-41fd-8569-54d0bbeee6c2.jpeg',
-            title: 'Image Title2',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n'
-        },
-        {
-            url: 'https://editorial01.shutterstock.com/wm-preview-1500/1482728a/2acc2243/barry-oconnell-president-of-the-sonning-water-ski-club-makes-a-pattern-through-the-air-in-an-exhibition-of-kite-water-skiing-at-the-international-waterski-tournament-at-bedfont-in-middlesex-shutterstock-editorial-1482728a.jpg',
-            title: 'Image Title3',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n'
-        },
-        {
-            url: 'https://i.ibb.co/fQ6rFtT/Screen-Shot-2021-09-10-at-3-26-49-PM.png',
-            title: 'Image Title4',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n'
-        },
-        {
-            url: 'https://editorial01.shutterstock.com/wm-preview-1500/1482728a/2acc2243/barry-oconnell-president-of-the-sonning-water-ski-club-makes-a-pattern-through-the-air-in-an-exhibition-of-kite-water-skiing-at-the-international-waterski-tournament-at-bedfont-in-middlesex-shutterstock-editorial-1482728a.jpg',
-            title: 'Image Title5',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n'
-        },
-        {
-            url: 'https://user-images.githubusercontent.com/44131043/132935964-ceb9b3ba-6540-41fd-8569-54d0bbeee6c2.jpeg',
-            title: 'Image Title6',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n'
-        },
-        {
-            url: 'https://i.ibb.co/fQ6rFtT/Screen-Shot-2021-09-10-at-3-26-49-PM.png',
-            title: 'Image Title',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n'
-        },
+  if (images === []) return <div>로딩중...</div>
 
-    ];
-
-
-
-    return (
-        <Row>
-            {imagesInfo.map(({url, title, text}) =>
-                (
-                <Col>
-                <ImageItem url={url}
-                           title={title}
-                           text={text}
-                           _onClickImage={_onClickImage}
-                />
-                </Col>
-                )
-            )}
-        </Row>
-    );
+  return (
+    <Row>
+      {images.map(({imageUrl, title, text, location, userId}) =>
+        (
+          <Col>
+            <ImageItem imageUrl={imageUrl}
+                       title={title}
+                       text={text}
+                       location={location}
+                       userId={userId}
+                       _onClickImage={_onClickImage}
+            />
+          </Col>
+        )
+      )}
+    </Row>
+  );
 };
 
 export default Images;

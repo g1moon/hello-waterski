@@ -88,12 +88,14 @@ const spotLine = ({query}) => {
 
 
   const getAllSpotData = async () => {
-    const data = await fetcher('get', '/data/spot.json');
+    // const data = await fetcher('get', '/data/spots.json');
+    const data = await fetcher('get', '/spots');
     setAllSpotData(data);
   };
 
   const getAllLineData = async () => {
-    const data = await fetcher('get', '/data/line.json');
+    // const data = await fetcher('get', '/data/line.json');
+    const data = await fetcher('get', '/lines');
     setAllLineData(data);
   };
 
@@ -147,9 +149,7 @@ const spotLine = ({query}) => {
 
   return (
     <>
-      <NavBar/>
       <Container>
-        <GlobalStyle/>
         <BodyBlackoutStyle ref={$blackout} isOpenModal={isActiveBlackout} onClick={_onClickBlackout}/>
         <MainInfoAndCurrent>
           <WatingInfoContainer>

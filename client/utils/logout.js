@@ -3,8 +3,11 @@ import {useState, useEffect} from 'react';
 
 export default (setLoginState) => {
     sessionStorage.clear();
-    console.log('logout');
-    axios.get('/api/logout')
+    axios({
+        method: 'get',
+        url: 'api/logout',
+        baseURL: "http://localhost:3000",
+    })
         .then((res) => {
             if (res.status === 200) {
                 setLoginState(false);

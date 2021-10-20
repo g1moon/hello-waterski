@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import axios from 'axios';
 import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import checkLogin from '../utils/checkLogin'
@@ -9,7 +8,8 @@ const Container = styled.div`
   z-index: 100;
   display: flex;
   justify-content: space-between;
-  margin: 0px 5px 60px 10px;
+  background: none;
+  
 `;
 
 const NavContents = styled.div`
@@ -91,12 +91,15 @@ const NavBar = ({isHome}) => {
   const [isLogin, setIsLogin] = useState(null);
 
   useEffect(() => {
+    console.log('checksdjfasdkfj');
     checkLogin(setIsLogin);
   }, []);
 
+  useEffect(() => {
+  }, [isLogin]);
 
   if (isLogin === null) {
-    return <div></div>;
+    return <div>로딩중</div>;
   }
 
   return (
@@ -104,7 +107,7 @@ const NavBar = ({isHome}) => {
       <HomeButton isHome={isHome} href='/'>HELLO WATERSKI</HomeButton>
       <NavContents>
         <NavButtonLink isHome={isHome} href='#'>출석체크</NavButtonLink>
-        <NavButtonLink isHome={isHome} href='/imagetalk'>게시판</NavButtonLink>
+        <NavButtonLink isHome={isHome} href='/images'>게시판</NavButtonLink>
         <NavButtonLink isHome={isHome} href='/usedmarket'>중고장터</NavButtonLink>
         <NavButtonLink isHome={isHome} href='/line'>줄서기</NavButtonLink>
         {isLogin

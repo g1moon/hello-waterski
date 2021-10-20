@@ -1,0 +1,198 @@
+[
+  {
+    "userId": "userId1",
+    "userName": "userName1",
+    "spotId": "spotId1",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "OneSki-Free"
+  },
+  {
+    "userId": "userId2",
+    "userName": "userName2",
+    "spotId": "spotId2",
+    "boatType": "2021 Natique",
+    "ridingType": "Wake Board"
+  },
+  {
+    "userId": "userId3",
+    "userName": "userName3",
+    "spotId": "spotId2",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId4",
+    "userName": "userName4",
+    "spotId": "spotId3",
+    "boatType": "2021 Natique",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId5",
+    "userName": "userName5",
+    "spotId": "spotId2",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "TwoSki"
+  },
+  {
+    "userId": "userId6",
+    "userName": "userName6",
+    "spotId": "spotId1",
+    "boatType": "2021 Natique",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId7",
+    "userName": "userName7",
+    "spotId": "spotId2",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "OneSki-Free"
+  },
+  {
+    "userId": "userId8",
+    "userName": "userName8",
+    "spotId": "spotId1",
+    "boatType": "2017 Natique",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId9",
+    "userName": "userName9",
+    "spotId": "spotId3",
+    "boatType": "Honda 200",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId10",
+    "userName": "userName10",
+    "spotId": "spotId1",
+    "boatType": "2021 Natique",
+    "ridingType": "Wake Board"
+  },
+  {
+    "userId": "userId11",
+    "userName": "userName11",
+    "spotId": "spotId2",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "OneSki-Free"
+  },
+  {
+    "userId": "userId12",
+    "userName": "userName12",
+    "spotId": "spotId1",
+    "boatType": "2017 Natique",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId13",
+    "userName": "userName13",
+    "spotId": "spotId1",
+    "boatType": "2021 Natique",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId14",
+    "userName": "userName14",
+    "spotId": "spotId3",
+    "boatType": "2017 MasterCraft",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId15",
+    "userName": "userName15",
+    "spotId": "spotId3",
+    "boatType": "Honda 200",
+    "ridingType": "Wake Board"
+  },
+  {
+    "userId": "userId16",
+    "userName": "userName16",
+    "spotId": "spotId1",
+    "boatType": "2021 Natique",
+    "ridingType": "TwoSki"
+  },
+  {
+    "userId": "userId17",
+    "userName": "userName17",
+    "spotId": "spotId3",
+    "boatType": "2017 Natique",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId18",
+    "userName": "userName18",
+    "spotId": "spotId2",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId19",
+    "userName": "userName19",
+    "spotId": "spotId2",
+    "boatType": "Honda 200",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId20",
+    "userName": "userName20",
+    "spotId": "spotId2",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "Wake Board"
+  },
+  {
+    "userId": "userId21",
+    "userName": "userName21",
+    "spotId": "spotId3",
+    "boatType": "2017 MasterCraft",
+    "ridingType": "OneSki-Free"
+  },
+  {
+    "userId": "userId22",
+    "userName": "userName22",
+    "spotId": "spotId3",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "Wake Board"
+  },
+  {
+    "userId": "userId23",
+    "userName": "userName23",
+    "spotId": "spotId1",
+    "boatType": "2021 Natique",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId24",
+    "userName": "userName24",
+    "spotId": "spotId3",
+    "boatType": "Honda 200",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId25",
+    "userName": "userName25",
+    "spotId": "spotId3",
+    "boatType": "2021 Natique",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId26",
+    "userName": "userName26",
+    "spotId": "spotId3",
+    "boatType": "Honda 200",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId27",
+    "userName": "userName27",
+    "spotId": "spotId3",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "OneSki-Buoy"
+  },
+  {
+    "userId": "userId28",
+    "userName": "userName28",
+    "spotId": "spotId3",
+    "boatType": "2021 MasterCraft",
+    "ridingType": "OneSki-Buoy"
+  }
+]

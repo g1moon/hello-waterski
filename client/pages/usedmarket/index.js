@@ -18,8 +18,6 @@ const Index = () => {
 
         return (
             <>
-                <Global/>
-                <NavBar></NavBar>
                 <Title>중고장터</Title>
                 <UsedMarketContainer>
                     <UsedMarketSortingButton/>
