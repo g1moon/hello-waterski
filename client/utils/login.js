@@ -1,11 +1,13 @@
 
 import axios from 'axios';
-import {useState, useEffect} from 'react';
-import {useRouter} from 'next/router';
-
 
 const login = (loginData, destUrl, router) => {
-    axios.post('/api/login', loginData)
+    axios({
+        method: 'post',
+        url: 'api/login',
+        baseURL: "http://localhost:3000",
+        data: loginData
+    })
         .then((res) => {
             if (res.status === 200) {
                 sessionStorage.setItem('userId', loginData.id);
