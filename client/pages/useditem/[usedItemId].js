@@ -16,7 +16,7 @@ const imageitem = ({query}) => {
 
 
     const getUsedItemDataById = async () => {
-        const data = await fetcher('get', '/data/useditems.json');
+        const data = await fetcher('get', '/useditems');
         //값에 맞는 것 찾아주고
         const res = data.find(i => i.usedItemId === id);
         setItemInfo(res);
