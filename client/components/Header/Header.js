@@ -7,8 +7,7 @@ import Footer from '../Footer/Footer';
 
 const HeaderContainer = styled.div`
   margin: 0;
-  padding: 0;
-  
+  padding-top: 7rem;
   display: block;
   background: linear-gradient(180deg, rgba(112, 93, 80, .8) 0, rgba(112, 93, 112, .8) 50%), url("https://user-images.githubusercontent.com/44131043/132935964-ceb9b3ba-6540-41fd-8569-54d0bbeee6c2.jpeg") 50% no-repeat;
   content: "";
@@ -111,7 +110,6 @@ const Header = () => {
     return (
         <>
             <HeaderContainer>
-                <NavBar isHome={true}/>
                 <div>
                     <MainExplanation>HELLO WATERSKI</MainExplanation>
                     <MainExplanation>수상스키의 모든 것</MainExplanation>

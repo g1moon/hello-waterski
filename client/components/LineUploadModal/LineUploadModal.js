@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import {useCallback, useEffect, useRef} from 'react';
 import useInput from "../../hooks/useInput";
 import {
@@ -46,7 +45,7 @@ const LineUploadModal = ({isOpenUploadModal,
       'boatType': boatType,
       'ridingType': ridingType,
     }
-    // const newLine = await fetcher('post', '/data/line.json', newLineInfo);
+    // const newLine = await fetcher('post', '/data/lines.json', newLineInfo);
     // if (!newLine) return Error('줄을 등록하는데 에러가 발생했습니다.');
     setAllLineData(prev => [...prev, newLine]);
   }

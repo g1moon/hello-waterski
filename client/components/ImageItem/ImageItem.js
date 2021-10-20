@@ -28,10 +28,11 @@ const Content = styled.div`
 
 const ImageContainer = styled.div`
   position: relative;
-  width: 100%;
   padding: 30px;
+  box-sizing: border-box;
+  cursor: pointer;
 
-
+  
   &:hover ${Overlay} {
     opacity: 0.6;
   }
@@ -43,17 +44,16 @@ const Image = styled.img`
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
-
 `;
 
 
-const ImageItem = ({url, text, title, _onClickImage}) => {
+const ImageItem = ({imageUrl, text, title, userId, location, _onClickImage}) => {
 
 
     return (
         <>
-            <ImageContainer onClick={(e) => _onClickImage(e, url, text, title)}>
-                <Image src={url} alt='photo'/>
+            <ImageContainer onClick={(e) => _onClickImage(e, imageUrl, text, title, location, userId)}>
+                <Image src={imageUrl} alt='photo'/>
                 <Overlay>
                     <Content>{title}</Content>
                 </Overlay>
