@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import Link from 'next/link';
 import {
+    LikeButton,
     SpotImage,
     SpotImageContainer,
     SpotInfoContainer,
@@ -10,14 +11,13 @@ import {
     SpotLikeContainer,
     SpotLikeImage,
     SpotLocation,
-    SpotTitle
+    SpotTitle,
 } from "./styles";
 
 
 const SpotItem = ({oneSpotData}) => {
 
     const {spotId, spotName, like, spotLocation, spotImage, spotIntro} = oneSpotData;
-
 
     return (
         <Link
@@ -30,10 +30,10 @@ const SpotItem = ({oneSpotData}) => {
                 <SpotTitle>{spotName}</SpotTitle>
                 <SpotLocation>{spotLocation}</SpotLocation>
                 <SpotIntro>{spotIntro}</SpotIntro>
-                <SpotLikeContainer>
+                <LikeButton>
                     <SpotLikeImage src={'https://cdn-icons-png.flaticon.com/512/833/833300.png'}/>
                     <SpotLike>{like}</SpotLike>
-                </SpotLikeContainer>
+                </LikeButton>
             </SpotInfoContainer>
             <SpotImageContainer>
                 <SpotImage src={spotImage}/>

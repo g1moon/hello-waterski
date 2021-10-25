@@ -2,9 +2,10 @@ import React, {useEffect} from 'react';
 import styled from "styled-components";
 
 import {
-    SpotLike,
-    SpotLikeContainer,
-    SpotLikeImage
+  LikeButton,
+  SpotLike,
+  SpotLikeContainer,
+  SpotLikeImage
 } from '../SpotItem/styles';
 
 const Container = styled.div`
@@ -62,10 +63,10 @@ const MainSpotInfo = ({oneSpotInfo}) => {
             <Image src={spotImage}></Image>
             <div style={{display: 'flex'}}>
                 <Title>spotName</Title>
-                <SpotLikeContainer style={{'margin-left': '10px'}}>
+                <LikeButton style={{'margin-left': '10px'}}>
                     <SpotLikeImage src={'https://cdn-icons-png.flaticon.com/512/833/833300.png'}/>
                     <SpotLike>{like}</SpotLike>
-                </SpotLikeContainer>
+                </LikeButton>
             </div>
             <Location>{spotLocation}</Location>
             <Text>{spotIntro}</Text>

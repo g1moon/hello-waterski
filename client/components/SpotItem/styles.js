@@ -8,8 +8,7 @@ export const SpotItemContainer = styled.div`
   width: 100%;
   height: 300px;
   align-items: center;
-  
-  
+
 
   //media
   @media screen and (max-width: 768px) {
@@ -20,41 +19,47 @@ export const SpotItemContainer = styled.div`
 
 
 //spot like
-export const SpotLikeContainer = styled.div`
+export const LikeButton = styled.button`
   display: flex;
   align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: all .3s;
 
+  &:hover {
+    opacity: 0.3;
+  }
 `;
 export const SpotLikeImage = styled.img`
-  height: 0.5rem;
-  
+  height: 1rem;
 `;
 export const SpotLike = styled.p`
-    margin-left: 2px;
-  font-size: 0.5rem;
+  margin-left: 2px;
+  font-size: 0.6rem;
 `;
 
 
 //spot info
 export const SpotInfoContainer = styled.div`
-    width: 30%;
-    padding-left: 20px;
+  width: 30%;
+  padding-left: 20px;
   margin-left: 20px;
-  
+
 `;
 export const SpotTitle = styled.h2`
-    font-size: 17px;
+  font-size: 17px;
 `;
 export const SpotLocation = styled.p`
-    font-size: 11px;
+  font-size: 11px;
 `;
 export const SpotIntro = styled.p`
   font-size: 12px;
-1`;
+  1`;
 
 //spot image
 export const SpotImageContainer = styled.div`
-    display: flex;
+  display: flex;
   align-items: center;
   margin-right: 15px;
 `;
