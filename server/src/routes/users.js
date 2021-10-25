@@ -37,11 +37,14 @@ const usersRoute = [
   {
     method: 'post',
     route: '/users',
-    handler: (req, res) => {
+    handler: ({body}, res) => {
       try {
-        const body = req.body;
         const users = getUsers();
-        const newUser = body;
+        const newUser = {
+          ...body,
+          "favoriteSpots": [],
+          "favoriteUsedItems": [],
+        }
         users.unshift(newUser);
         setUsers(users);
         res.send(newUser);
