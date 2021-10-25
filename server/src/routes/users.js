@@ -53,6 +53,22 @@ const usersRoute = [
       }
     }
   },
+  //중복아이디 체크
+  {
+    method: 'post',
+    route: '/users/isPossibleId',
+    handler: ({body}, res) => {
+      try {
+        const requestedId = body.id;
+        const users = getUsers();
+        const result = users.findIndex(user => user.id === requestedId) === -1;
+        console.log(result);
+        res.send(result);
+      } catch (err) {
+        res.send({error: err});
+      }
+    }
+  },
 ];
 
 export default usersRoute
