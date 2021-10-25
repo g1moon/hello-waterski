@@ -85,7 +85,7 @@ const UploadModal = ({isOpenUploadModal, setIsOpenUploadMdal, setIsActiveBlackou
     resetAllInputs();
   };
 
-  const onClickCancle = (e) => {
+  const onClickCancel = (e) => {
     e.preventDefault();
     closeModal();
     resetAllInputs();
@@ -122,7 +122,7 @@ const UploadModal = ({isOpenUploadModal, setIsOpenUploadMdal, setIsActiveBlackou
           {imagePreview !== null && <ImagePreview src={imagePreview} alt={'image preview'}/>}
 
           <ButtonContainer>
-            <CancelButton onClick={onClickCancle}><b>Cancel</b></CancelButton>
+            <CancelButton onClick={onClickCancel}><b>Cancel</b></CancelButton>
             <SubmitButton onClick={onSubmit}><b>Submit Image</b></SubmitButton>
           </ButtonContainer>
         </InnerFormContainer>
