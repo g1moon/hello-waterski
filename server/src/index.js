@@ -36,7 +36,7 @@ app.use(
 app.use(express.static('public'));
 
 
-const routes = [...linesRoute, ...spotsRoute, ...useditemsRoute, ...imagesRoute];
+const routes = [...linesRoute, ...spotsRoute, ...useditemsRoute, ...imagesRoute, ...usersRoute];
 
 //routes : [{method:, route:, handler:}, {method:, route:, handler:}, {method:, route:, handler:}]
 // 아래와 같이 사용(forEach로 route 등록)
