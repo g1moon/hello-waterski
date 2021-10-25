@@ -1,0 +1,6 @@
+[
+  {"id":"gimoonId", "name": "gimoon", "nickname": "기문", "favoriteSpots": [], "favoriteUsedItems": []},
+  {"id":"yongsId", "name": "yongs", "nickanme": "아용", "favoriteSpots": [], "favoriteUsedItems": []},
+  {"id":"helloX", "name": "helloName", "nickanme": "helloNickname", "favoriteSpots": [], "favoriteUsedItems": []},
+  {"id":"byeId", "name": "bye", "nickanme": "바이", "favoriteSpots": [], "favoriteUsedItems": []}
+]
