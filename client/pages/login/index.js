@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import axios from 'axios';
 import {useRouter} from 'next/router';
 import login from '../../utils/login';
+import Link from 'next/link';
 const Container = styled.div`
   
   margin: auto;
 
-  width: 40%; /* Full width */
+  width: 30%; /* Full width */
   height: 40%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   padding-top: 60px;
@@ -20,7 +21,7 @@ const ImageContainer = styled.div`
   justify-content: center;
 `;
 const Image = styled.img`
-  width: 60%;
+  width: 50%;
   height: auto;
 `;
 
@@ -44,11 +45,18 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   width: 100%;
-
+    
   &:hover {
     opacity: 0.6;
   }
 `;
+
+const SignUpContainer = styled.div`
+    text-align: center;
+    color: silver;
+`;
+
+
 
 
 const LoginPage = () => {
@@ -58,7 +66,7 @@ const LoginPage = () => {
 
     const router = useRouter();
 
-    const _onSubmitLogin = (e) => {
+    const onClickLogin = (e) => {
         e.preventDefault();
         setLoginId('');
         setLoginPassword('');
@@ -67,13 +75,19 @@ const LoginPage = () => {
         login(body, '/', router);
     };
 
+    const onClickSignUp = () => {
+
+    };
+
     const _onChangeInput = (e) => {
         e.preventDefault();
         e.target.name === 'id' ? setLoginId(e.target.value) : setLoginPassword(e.target.value);
     };
+
+
     return (
         <Container>
-            <LoginForm onSubmit={_onSubmitLogin}>
+            <LoginForm onSubmit={onClickLogin}>
                 <ImageContainer>
                     <Image src='https://cdn-icons-png.flaticon.com/512/1177/1177568.png'></Image>
                 </ImageContainer>
@@ -95,7 +109,12 @@ const LoginPage = () => {
 
                     />
                 </InputContainer>
-                <Button type='button' onClick={_onSubmitLogin}>Login</Button>
+                <Button type='button' onClick={onClickLogin}>Login</Button>
+                <SignUpContainer>
+                <Link href={'/user'}>
+                    회원가입
+                </Link>
+                </SignUpContainer>
             </LoginForm>
         </Container>
     );
