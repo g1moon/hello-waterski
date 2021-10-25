@@ -37,16 +37,35 @@ const usersRoute = [
   {
     method: 'post',
     route: '/users',
-    handler: (req, res) => {
+    handler: ({body}, res) => {
       try {
-        const body = req.body;
         const users = getUsers();
-        const newUser = body;
+        const newUser = {
+          ...body,
+          "favoriteSpots": [],
+          "favoriteUsedItems": [],
+        }
         users.unshift(newUser);
         setUsers(users);
         res.send(newUser);
       } catch (err) {
         res.send({ error: err});
+      }
+    }
+  },
+  //중복아이디 체크
+  {
+    method: 'post',
+    route: '/users/isPossibleId',
+    handler: ({body}, res) => {
+      try {
+        const requestedId = body.id;
+        const users = getUsers();
+        const result = users.findIndex(user => user.id === requestedId) === -1;
+        console.log(result);
+        res.send(result);
+      } catch (err) {
+        res.send({error: err});
       }
     }
   },
