@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
 
-export default (setLoginState) => {
+const logout = (setLoginState) => {
     sessionStorage.clear();
     axios({
         method: 'get',
@@ -18,3 +18,5 @@ export default (setLoginState) => {
         })
         .catch((err) => console.log(err))
 };
+
+export default logout;

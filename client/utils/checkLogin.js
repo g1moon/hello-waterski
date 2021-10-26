@@ -2,7 +2,7 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
 
-export default (setLoginState, destUrl, router) => {
+const checkLogin =  (setLoginState, destUrl, router) => {
     axios({
         method: 'get',
         url: 'api/isLogin',
@@ -23,3 +23,4 @@ export default (setLoginState, destUrl, router) => {
     });
 };
 
+export default checkLogin;
