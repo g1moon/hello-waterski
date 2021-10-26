@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
+import fetcher from "../../utils/fetcher";
 
 //spot like
 export const LikeButton = styled.button`
@@ -23,25 +24,27 @@ export const SpotLike = styled.p`
 `;
 
 const SpotLikeButton = ({likeCount, spotId}) => {
-  console.log(spotId);
+  const [isLiked, setIsLiked] = useState(false);
 
   //post /spotLikes/unLike
   const getIsLiked = async () => {
+    const userId = sessionStorage.getItem('userId');
     const objForPost = {userId, spotId};
-    const res = await fetcher('get', '/spotLikes', spotId);
-    console.log(res);
+    const targetIndex = await fetcher('get', `/spotLikes`, {params: objForPost})
+    setIsLiked(targetIndex >= 0);
   };
 
   const onClickLike = (e) => {
     console.log('click');
   };
 
-  useEffect(() => {
+  useEffect( () => {
+    getIsLiked();
   }, []);
 
     return (
       <LikeButton onClick={onClickLike}>
-          <SpotLikeImage src={'https://cdn-icons-png.flaticon.com/512/833/833300.png'}/>
+          <SpotLikeImage src={`/${isLiked ? '' : 'un'}liked.png`}/>
           <SpotLike>{likeCount}</SpotLike>
       </LikeButton>
     );
