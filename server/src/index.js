@@ -4,7 +4,7 @@ import usersRoute from './routes/users.js'
 import linesRoute from "./routes/lines.js";
 import spotsRoute from "./routes/spots.js";
 import imagesRoute from "./routes/images.js";
-import spotLikesRoute from "./routes/likes.js";
+import spotLikesRoute from "./routes/spotLikes.js";
 import usedItemsRoute from "./routes/useditems.js";
 
 import multer from "multer";
