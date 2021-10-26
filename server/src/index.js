@@ -1,11 +1,12 @@
 import express from 'express'
 import cors from 'cors'
-import messagesRoute from './routes/messages.js'
 import usersRoute from './routes/users.js'
 import linesRoute from "./routes/lines.js";
 import spotsRoute from "./routes/spots.js";
-import useditemsRoute from "./routes/useditems.js";
 import imagesRoute from "./routes/images.js";
+import spotLikesRoute from "./routes/likes.js";
+import usedItemsRoute from "./routes/useditems.js";
+
 import multer from "multer";
 import path from "path";
 
@@ -36,7 +37,7 @@ app.use(
 app.use(express.static('public'));
 
 
-const routes = [...linesRoute, ...spotsRoute, ...useditemsRoute, ...imagesRoute, ...usersRoute];
+const routes = [...linesRoute, ...spotsRoute, ...usedItemsRoute, ...imagesRoute, ...usersRoute, ...spotLikesRoute];
 
 //routes : [{method:, route:, handler:}, {method:, route:, handler:}, {method:, route:, handler:}]
 // 아래와 같이 사용(forEach로 route 등록)
