@@ -4,7 +4,6 @@ export const SpotItemContainer = styled.div`
   display: flex;
   background-color: rgba(246, 250, 245, 0.99);
   justify-content: space-between;
-  cursor: pointer;
   width: 100%;
   height: 300px;
   align-items: center;
@@ -16,30 +15,6 @@ export const SpotItemContainer = styled.div`
   }
 
 `;
-
-
-//spot like
-export const LikeButton = styled.button`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  background: none;
-  border: none;
-  transition: all .3s;
-
-  &:hover {
-    opacity: 0.3;
-  }
-`;
-export const SpotLikeImage = styled.img`
-  height: 1rem;
-`;
-export const SpotLike = styled.p`
-  margin-left: 2px;
-  font-size: 0.6rem;
-`;
-
-
 //spot info
 export const SpotInfoContainer = styled.div`
   width: 30%;
@@ -55,7 +30,7 @@ export const SpotLocation = styled.p`
 `;
 export const SpotIntro = styled.p`
   font-size: 12px;
-  1`;
+`;
 
 //spot image
 export const SpotImageContainer = styled.div`
@@ -67,4 +42,5 @@ export const SpotImage = styled.img`
   width: 230px;
   height: 180px;
   object-fit: cover;
+  cursor: pointer;
 `;
