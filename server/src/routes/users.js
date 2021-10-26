@@ -50,6 +50,18 @@ const usersRoute = [
       }
     }
   },
+  {
+    method: 'post',
+    route: '/users',
+    handler: ({body}, res) => {
+      try{
+        const {userId} = body;
+        console.log(log)
+      } catch (err) {
+        res.send({error: err})
+      }
+    }
+  }
 ];
 
 export default usersRoute

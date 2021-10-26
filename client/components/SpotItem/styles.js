@@ -23,8 +23,8 @@ export const SpotItemContainer = styled.div`
 export const SpotLikeContainer = styled.div`
   display: flex;
   align-items: center;
-
 `;
+
 export const SpotLikeImage = styled.img`
   height: 0.5rem;
   
