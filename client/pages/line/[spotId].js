@@ -88,19 +88,20 @@ const spotLine = ({query}) => {
 
 
   const getAllSpotData = async () => {
-    // const data = await fetcher('get', '/data/spots.json');
     const data = await fetcher('get', '/spots');
+    console.log('getAllSpotData', data);
     setAllSpotData(data);
   };
 
   const getAllLineData = async () => {
-    // const data = await fetcher('get', '/data/line.json');
     const data = await fetcher('get', '/lines');
     setAllLineData(data);
   };
 
   const getAndSetOneSpotData = () => {
     const res = allSpotData.find(spot => spot.spotId === spotId);
+    console.log('allSpotData', allSpotData);
+    console.log('res', res);
     setOneSpotData(res);
   };
 
@@ -133,10 +134,13 @@ const spotLine = ({query}) => {
     getAllLineData()
   }, []);
 
+  useEffect(() => {
+    getAndSetOneSpotData();
+  }, [allSpotData]);
+
 
   useEffect(() => {
     getAndSetOneSpotLineData();
-    getAndSetOneSpotData();
   }, [allLineData]);
 
 
