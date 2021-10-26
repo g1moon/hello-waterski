@@ -4,39 +4,47 @@
     "imageUrl": "http://localhost:8000/img/waterski1.png",
     "title": "Image Title1",
     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n",
-    "location": "떙떙스키장",
-    "userId": "익명의유저"
+    "location": "무슨무슨스키장1",
+    "userId": "익명의유저1"
   },
   {
     "id": "id2",
     "imageUrl": "http://localhost:8000/img/waterski2.jpeg",
     "title": "Image Title2",
     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n",
-    "location": "무슨무슨스키장",
-    "userId": "익명의유저어11"
+    "location": "무슨무슨스키장2",
+    "userId": "익명의유저2"
   },
   {
     "id": "id3",
     "imageUrl": "http://localhost:8000/img/waterski3.jpeg",
-    "title": "Image Title2",
+    "title": "Image Title3",
     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n",
-    "location": "무슨무슨스키장",
-    "userId": "익명의유저어123"
+    "location": "무슨무슨스키장3",
+    "userId": "익명의유저3"
   },
   {
     "id": "id4",
     "imageUrl": "http://localhost:8000/img/waterski4.jpeg",
-    "title": "Image Title2",
+    "title": "Image Title4",
     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n",
-    "location": "무슨무슨스키장",
-    "userId": "익명의유저어22"
+    "location": "무슨무슨스키장4",
+    "userId": "익명의유저4"
   },
   {
     "id": "id5",
-    "imageUrl": "http://localhost:8000/img/waterski6.jpeg",
-    "title": "Image Title2",
+    "imageUrl": "http://localhost:8000/img/waterski5.jpeg",
+    "title": "Image Title5",
     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n",
-    "location": "무슨무슨스키장",
-    "userId": "익명의유저어444"
+    "location": "무슨무슨스키장5",
+    "userId": "익명의유저5"
+  },
+  {
+    "id": "id6",
+    "imageUrl": "http://localhost:8000/img/waterski6.jpeg",
+    "title": "Image Title6",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eius error eum excepturi expedita facere inventore ipsa, laboriosam laudantium magnam magni numquam, odio placeat quam rem vitae voluptate voluptates!\n",
+    "location": "무슨무슨스키장6",
+    "userId": "익명의유저어6"
   }
 ]
