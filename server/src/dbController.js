@@ -9,6 +9,7 @@ const filenames = {
     useditems: resolve(basePath, 'src/db/useditems.json'),
     images: resolve(basePath, 'src/db/images.json'),
     users: resolve(basePath, 'src/db/users.json'),
+    spotLikes: resolve(basePath, 'src/db/spotLikes.json'),
 }
 
 //Json이엇던 것을 풀어서 -> 인코딩 명시 해줘야함.
