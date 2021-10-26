@@ -1,7 +1,7 @@
 import {readDB, writeDB} from '../dbController.js';
 
-const getLines = () => readDB('spots');
-const setLines = data => writeDB('spots', data);
+const getSpots = () => readDB('spots');
+const setSpots = data => writeDB('spots', data);
 
 const spotsRoute = [
   {
@@ -9,7 +9,7 @@ const spotsRoute = [
     method: 'get',
     route: '/spots',
     handler: (req, res) => {
-      const spots = getLines();
+      const spots = getSpots();
       res.send(spots);
     }
   },
