@@ -111,8 +111,8 @@ const NavBar = ({isHome}) => {
         <NavButtonLink isHome={isHome} href='/usedmarket'>중고장터</NavButtonLink>
         <NavButtonLink isHome={isHome} href='/line'>줄서기</NavButtonLink>
         {isLogin
-          ? <Link href='/'><LogoutButton onClick={() => logout(setIsLogin)}>Logout</LogoutButton></Link>
-          : <Link href='/login'><LoginButton>Login</LoginButton></Link>
+          ? <Link href='/'><LogoutButton onClick={() => logout(setIsLogin)}>login/out</LogoutButton></Link>
+          : <Link href='/login'><LoginButton>login/out</LoginButton></Link>
         }
       </NavContents>
     </Container>
