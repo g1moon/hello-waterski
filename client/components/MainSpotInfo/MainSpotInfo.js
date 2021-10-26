@@ -7,13 +7,14 @@ import {
   SpotLikeContainer,
   SpotLikeImage
 } from '../SpotItem/styles';
+import SpotLikeButton from "../SpotLikeButton /SpotLikeButton";
 
 const Container = styled.div`
   width: 35rem;
   display: block;
   margin-bottom: 20px;
 
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     width: 30rem;
     margin: 0 auto;
   }
@@ -49,29 +50,25 @@ const Text = styled.div`
 
 const MainSpotInfo = ({oneSpotInfo}) => {
 
+  if (oneSpotInfo == null) {
+    console.log('hello');
+    return <div>로딩중</div>;
+  }
 
-    if (oneSpotInfo == null) {
-        console.log('hello');
-        return <div>로딩중</div>;
-    }
-
-    const {spotName, like, spotLocation, spotIntro, spotImage} = oneSpotInfo;
+  const {spotId, spotName, like, spotLocation, spotIntro, spotImage} = oneSpotInfo;
 
 
-    return (
-        <Container>
-            <Image src={spotImage}></Image>
-            <div style={{display: 'flex'}}>
-                <Title>spotName</Title>
-                <LikeButton style={{'margin-left': '10px'}}>
-                    <SpotLikeImage src={'https://cdn-icons-png.flaticon.com/512/833/833300.png'}/>
-                    <SpotLike>{like}</SpotLike>
-                </LikeButton>
-            </div>
-            <Location>{spotLocation}</Location>
-            <Text>{spotIntro}</Text>
-        </Container>
-    );
+  return (
+    <Container>
+      <Image src={spotImage}></Image>
+      <div style={{display: 'flex'}}>
+        <Title>spotName</Title>
+        <SpotLikeButton likeCount={like} spotId={spotId}/>
+      </div>
+      <Location>{spotLocation}</Location>
+      <Text>{spotIntro}</Text>
+    </Container>
+  );
 };
 
 export default MainSpotInfo;
