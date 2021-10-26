@@ -18,11 +18,7 @@ import {router} from "next/router";
 const SpotItem = ({oneSpotData}) => {
 
   const {spotId, spotName, like, spotLocation, spotImage, spotIntro} = oneSpotData;
-
   const userId = sessionStorage.getItem('userId');
-  console.log('userId', userId );
-
-
 
   return (
     <>

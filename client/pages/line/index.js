@@ -1,39 +1,27 @@
 import {useRouter} from 'next/router';
 import {useEffect, useState} from 'react';
-import axios from 'axios';
-import logout from '../../utils/logout';
 import checkLogin from '../../utils/checkLogin';
-import NavBar from '../../layout/NavBar';
 import TopSpotsList from '../../components/TopSpotsList/TopSpotsList';
 import fetcher from "../../utils/fetcher";
 import SpotList from '../../components/SpotList/SpotList';
 import Carousel from "../../components/carousel/Carousel";
-import styled from "styled-components";
-import GlobalStyle from "../../styles/global";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import {useCallback} from "react";
+import {CarouselContainer} from "./styles";
 
-const CarouselContainer = styled.div`
-  width: 100%;
-  margin: 0 auto 50px auto;
-`;
-
-const Line = () => {
+const Line = ({spotLikesData, spotsData}) => {
 
     const router = useRouter();
     const [isLogin, setIsLogin] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [allSpotData, setAllSpotData] = useState([]);
     const [topThreeSpot, setTopThreeSpot] = useState([]);
+    const [spotLikes, setSpotLikes] = useState(spotLikesData);
 
-
-    //모든 spot데이터 가져오기
     const getAllSpotData = async () => {
         const data = await fetcher('get', '/spots');
         setAllSpotData(data);
     };
 
-    //상위 3개 spot설정
     const getTopThreeSpot = () => {
         let result;
         result = allSpotData.sort(function (a, b) {
@@ -43,15 +31,12 @@ const Line = () => {
         setTopThreeSpot(topThree);
     };
 
-    //처음에 모든 spot데이터 받아오기
     useEffect(() => {
+        console.log('--', spotLikesData);
         setIsLoading(true);
         checkLogin(setIsLogin);
         getAllSpotData();
         setIsLoading(false);
-
-
-
     }, []);
 
     //spot데이터가 바뀌면 -> topThreespot가져오기
@@ -59,13 +44,7 @@ const Line = () => {
         getTopThreeSpot();
     }, [allSpotData]);
 
-
-    if (isLoading) {
-        console.log('로오딩');
-        return <div>로딩</div>;
-    }
-
-
+    if (isLoading) return <div>로딩</div>;
 
     return (
         <>
@@ -76,9 +55,16 @@ const Line = () => {
             </CarouselContainer>
             <SpotList allSpotData={allSpotData}/>
         </>
-
     );
+};
 
+export const getServerSideProps = async () => {
+    const linesData = await fetcher('get', '/lines');
+    const spotLikesData = await fetcher('get', '/spotLikes');
+    const spotsData = await fetcher('get', '/spots');
+    return {
+        props: {linesData, spotLikesData, spotsData},
+    };
 };
 
 export default Line;
