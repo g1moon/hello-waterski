@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import Link from 'next/link';
-import Router from 'next/router';
+import {Link} from 'react-router-dom';
 
 
 const Overlay = styled.div`
@@ -25,7 +24,7 @@ const OverlayText = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  text-align: center;       
+  text-align: center;
 
   color: white;
   font-size: 16px;
@@ -84,28 +83,31 @@ const ItemPrice = styled.span`
   margin-top: 6px;
 `;
 
+const DetailLink = styled.a`
+  text-decoration-line: none;
+`
+
+
+
 const UsedItem = ({usedItem}) => {
 
-    const {usedItemId, userId, userName, itemState, itemPrice, itemLocation, imageUrl, text, itemTitle} = usedItem;
-    return (
-        <Link
-            href={{
-                pathname: `/useditem/[id]`,
-                query: {id: usedItemId}
-        }}>
-            <UsedItemGridContainer>
-                <Image src={imageUrl}></Image>
-                <ItemInfo>
-                    <ItemTitle>{itemTitle}</ItemTitle>
-                    <ItemLocation>{itemLocation}</ItemLocation>
-                    <ItemPrice>{itemPrice}원</ItemPrice>
-                </ItemInfo>
-                <Overlay>
-                    <OverlayText>더 보기</OverlayText>
-                </Overlay>
-            </UsedItemGridContainer>
-        </Link>
-    )
+  const {usedItemId, userId, userName, itemState, itemPrice, itemLocation, imageUrl, text, itemTitle} = usedItem;
+  return (
+
+    <UsedItemGridContainer>
+      <DetailLink href={`/useditem/${usedItemId}`}>
+        <Image src={imageUrl}></Image>
+        <ItemInfo>
+          <ItemTitle>{itemTitle}</ItemTitle>
+          <ItemLocation>{itemLocation}</ItemLocation>
+          <ItemPrice>{itemPrice}원</ItemPrice>
+        </ItemInfo>
+        <Overlay>
+          <OverlayText>더 보기</OverlayText>
+        </Overlay>
+      </DetailLink>
+    </UsedItemGridContainer>
+  )
 };
 
 export default UsedItem;

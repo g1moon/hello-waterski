@@ -8,9 +8,9 @@ import {
   SpotItemContainer,
   SpotLocation,
   SpotTitle,
+  DetailLink,
 } from "./styles";
 import SpotLikeButton from "../SpotLikeButton /SpotLikeButton";
-
 
 
 const SpotItem = ({oneSpotData}) => {
@@ -26,15 +26,12 @@ const SpotItem = ({oneSpotData}) => {
           <SpotIntro>{spotIntro}</SpotIntro>
           <SpotLikeButton likeCount={like} spotId={spotId}/>
         </SpotInfoContainer>
-        <Link
-          href={{
-            pathname: `/line/[id]`,
-            query: {id: spotId}
-          }}>
-          <SpotImageContainer>
+
+        <SpotImageContainer>
+          <DetailLink href={`/line/${spotId}`}>
             <SpotImage src={spotImage}/>
-          </SpotImageContainer>
-        </Link>
+          </DetailLink>
+        </SpotImageContainer>
       </SpotItemContainer>
     </>
   );
