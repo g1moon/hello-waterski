@@ -2,7 +2,7 @@
 
   {
     "spotId": "spotId2",
-    "spotName": "도리수상스키",
+    "spotName": "도리수상스키2",
     "like": 32,
     "spotLocation": "경기도 여주시 여주면 도리",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -10,7 +10,7 @@
   },
   {
     "spotId": "spotId1",
-    "spotName": "쎄시봉수상스키",
+    "spotName": "쎄시봉수상스키1",
     "like": 51,
     "spotLocation": "경기도 양평군 양평읍 병산리",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -18,7 +18,7 @@
   },
   {
     "spotId": "spotId3",
-    "spotName": "토비스수상스키",
+    "spotName": "강산수상레저3",
     "like": 23,
     "spotLocation": "강원도 춘천시 춘천면",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -26,7 +26,7 @@
   },
   {
     "spotId": "spotId4",
-    "spotName": "산장수상레포츠",
+    "spotName": "산장수상레포츠4",
     "like": 12,
     "spotLocation": "강원도 화천군 화천면",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -34,7 +34,7 @@
   },
   {
     "spotId": "spotId5",
-    "spotName": "토마토수상레저",
+    "spotName": "토마토수상레저5",
     "like": 16,
     "spotLocation": "강원도 삼척군",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -42,7 +42,7 @@
   },
   {
     "spotId": "spotId6",
-    "spotName": "물좋아스포츠 수상레저",
+    "spotName": "물좋아스포츠 수상레저6",
     "like": 1,
     "spotLocation": "강원도 화천시 방하리",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -50,7 +50,7 @@
   },
   {
     "spotId": "spotId7",
-    "spotName": "강천아일랜드 수상레저",
+    "spotName": "강천아일랜드 수상레저7",
     "like": 1,
     "spotLocation": "경기도 여주시 강천면",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -58,15 +58,15 @@
   },
   {
     "spotId": "spotId8",
-    "spotName": "비버네선착장",
+    "spotName": "비버네선착장8",
     "like": 1,
-    "spotLocation": "강원도 춘천시 방하리",
+    "spotLocation": "강원도 춘천시 방하리8",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     "spotImage": "http://localhost:8000/spots/spot8.jpeg"
   },
   {
     "spotId": "spotId9",
-    "spotName": "토비스수상스키",
+    "spotName": "토비스수상스키9",
     "like": 2,
     "spotLocation": "강원도 춘천시 춘천면 춘처언리",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -74,7 +74,7 @@
   },
   {
     "spotId": "spotId10",
-    "spotName": "청춘수상레저",
+    "spotName": "청춘수상레저10",
     "like": 2,
     "spotLocation": "강원도 고성군 고성면",
     "spotIntro": "ining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
