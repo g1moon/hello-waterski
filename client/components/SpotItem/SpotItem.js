@@ -1,24 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  LikeButton,
   SpotImage,
   SpotImageContainer,
   SpotInfoContainer,
   SpotIntro,
-  SpotItemContainer, SpotLike,
-  SpotLikeImage,
+  SpotItemContainer,
   SpotLocation,
   SpotTitle,
 } from "./styles";
 import SpotLikeButton from "../SpotLikeButton /SpotLikeButton";
-import {router} from "next/router";
+
 
 
 const SpotItem = ({oneSpotData}) => {
 
   const {spotId, spotName, like, spotLocation, spotImage, spotIntro} = oneSpotData;
-  const userId = sessionStorage.getItem('userId');
 
   return (
     <>

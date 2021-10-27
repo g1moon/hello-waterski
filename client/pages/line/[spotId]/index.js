@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 
-const spotLine = ({query, linesData, spotLikesData, spotsData}) => {
+const spotLine = ({query}) => {
   const router = useRouter();
   //이 아이디에 맞는 데이터를 찾아야함
 
@@ -24,14 +24,12 @@ const spotLine = ({query, linesData, spotLikesData, spotsData}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [allLineData, setAllLineData] = useState(linesData);
+  const [allLineData, setAllLineData] = useState([]);
   const [oneSpotLineData, setOneSpotLineData] = useState(null);
 
 
-  const [allSpotData, setAllSpotData] = useState(spotsData);
+  const [allSpotData, setAllSpotData] = useState([]);
   const [oneSpotData, setOneSpotData] = useState(null);
-
-  const [spotLikes, setSpotLikes] = useState(spotLikesData);
 
   const [myTurn, setMyTurn] = useState(null);
 
@@ -130,14 +128,5 @@ const spotLine = ({query, linesData, spotLikesData, spotsData}) => {
     </>
   );
 };
-
-export const getServerSideProps = async () => {
-  const linesData = await fetcher('get', '/lines');
-  const spotLikesData = await fetcher('get', '/spotLikes');
-  const spotsData = await fetcher('get', '/spots');
-  return {
-    props: {linesData, spotLikesData, spotsData},
-  }
-}
 
 export default spotLine;

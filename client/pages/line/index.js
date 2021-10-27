@@ -1,4 +1,3 @@
-import {useRouter} from 'next/router';
 import {useEffect, useState} from 'react';
 import checkLogin from '../../utils/checkLogin';
 import TopSpotsList from '../../components/TopSpotsList/TopSpotsList';
@@ -8,14 +7,12 @@ import Carousel from "../../components/carousel/Carousel";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import {CarouselContainer} from "./styles";
 
-const Line = ({spotLikesData, spotsData}) => {
+const Line = () => {
 
-    const router = useRouter();
     const [isLogin, setIsLogin] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [allSpotData, setAllSpotData] = useState([]);
     const [topThreeSpot, setTopThreeSpot] = useState([]);
-    const [spotLikes, setSpotLikes] = useState(spotLikesData);
 
     const getAllSpotData = async () => {
         const data = await fetcher('get', '/spots');
@@ -32,7 +29,6 @@ const Line = ({spotLikesData, spotsData}) => {
     };
 
     useEffect(() => {
-        console.log('--', spotLikesData);
         setIsLoading(true);
         checkLogin(setIsLogin);
         getAllSpotData();
@@ -56,15 +52,6 @@ const Line = ({spotLikesData, spotsData}) => {
             <SpotList allSpotData={allSpotData}/>
         </>
     );
-};
-
-export const getServerSideProps = async () => {
-    const linesData = await fetcher('get', '/lines');
-    const spotLikesData = await fetcher('get', '/spotLikes');
-    const spotsData = await fetcher('get', '/spots');
-    return {
-        props: {linesData, spotLikesData, spotsData},
-    };
 };
 
 export default Line;

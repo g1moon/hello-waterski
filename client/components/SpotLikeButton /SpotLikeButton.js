@@ -1,53 +1,75 @@
 import React, {useEffect, useState} from 'react';
-import styled from "styled-components";
 import fetcher from "../../utils/fetcher";
-
-//spot like
-export const LikeButton = styled.button`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  background: none;
-  border: none;
-  transition: all .3s;
-
-  &:hover {
-    opacity: 0.3;
-  }
-`;
-export const SpotLikeImage = styled.img`
-  height: 1.2rem;
-`;
-export const SpotLike = styled.p`
-  margin-left: 2px;
-  font-size: 0.7rem;
-`;
+import {LikeButton, SpotLike, SpotLikeImage} from "./styles";
 
 const SpotLikeButton = ({likeCount, spotId}) => {
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(null);
+  const [spotLikes, setSpotLikes] = useState([])
+
+  const getSpotLikes = async () => {
+    const data = await fetcher('get', '/spotLikes');
+    setSpotLikes(data);
+  };
 
   //post /spotLikes/unLike
-  const getIsLiked = async () => {
+  const postIsLiked = async () => {
     const userId = sessionStorage.getItem('userId');
     const objForPost = {userId, spotId};
-    const targetIndex = await fetcher('get', `/spotLikes`, {params: objForPost})
-    setIsLiked(targetIndex >= 0);
+    const res = await fetcher('post', `/spotLikes/isLiked`, objForPost);
+    console.log('res',spotId, res);
+    setIsLiked(res);
   };
 
-  const onClickLike = (e) => {
-    console.log('click');
-  };
+  const likeSpot = async () => {
+    const userId = sessionStorage.getItem('userId');
+    const objForPost = {userId, spotId}
+    const newSpotLike = await fetcher('post', '/spotLikes/like', objForPost);
 
-  useEffect( () => {
-    getIsLiked();
+    const newSpotLikes = [newSpotLike, ...spotLikes];
+    setSpotLikes(newSpotLikes);
+
+    setIsLiked(true);
+  }
+
+  const dislikeSpot = async () => {
+    console.log('clicked dislike', spotId);
+    const userId = sessionStorage.getItem('userId');
+    const objForDelete = {userId, spotId}
+    const deletedId = await fetcher('delete', `/spotLikes/like`, {params: objForDelete});
+
+    const newSpotLikes = [...spotLikes];
+    const targetIndex = spotLikes.findIndex(spotLike => spotLike.id === deletedId);
+    if (targetIndex < 0) return;
+
+    newSpotLikes.splice(targetIndex, 1);
+    setSpotLikes(newSpotLikes);
+
+    setIsLiked(false);
+  }
+
+  const onClickLikeButton = (e) => {
+    isLiked ? dislikeSpot() : likeSpot();
+  }
+
+  useEffect(() => {
+    getSpotLikes();
   }, []);
 
-    return (
-      <LikeButton onClick={onClickLike}>
-          <SpotLikeImage src={`/${isLiked ? '' : 'un'}liked.png`}/>
-          <SpotLike>{likeCount}</SpotLike>
-      </LikeButton>
-    );
+  useEffect(() => {
+    postIsLiked();
+  }, [isLiked, spotLikes]);
+
+  if (isLiked === null) {
+    return <div>로딩중</div>;
+  }
+
+
+  return (
+    <LikeButton onClick={onClickLikeButton}>
+      <SpotLikeImage src={`/${isLiked ? '' : 'un'}liked.png`}/>
+      <SpotLike>{likeCount}</SpotLike>
+    </LikeButton>
+  );
 };
 
 export default SpotLikeButton;
