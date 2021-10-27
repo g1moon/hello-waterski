@@ -44,3 +44,7 @@ export const SpotImage = styled.img`
   object-fit: cover;
   cursor: pointer;
 `;
+
+export const DetailLink = styled.a`
+  text-decoration: none;
+`
