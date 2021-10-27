@@ -6,6 +6,7 @@ import {useState, useEffect, useRef} from 'react';
 import UploadModal from '../../components/ImageUploadModal/UploadModal';
 import ImageModall from '../../components/ImageModall/ImageModall';
 import fetcher from "../../utils/fetcher";
+import alertNeedToLogin from "../../utils/alertNeedToLogin";
 
 
 const ButtonContainer = styled.div`
@@ -78,6 +79,7 @@ const Index = () => {
 
     //upload 버튼 누를 시
     const _onClickUpload = () => {
+      if (alertNeedToLogin()) return;
       setIsActiveBlackout(true)
       setIsOpenUploadMdal(true);
     };

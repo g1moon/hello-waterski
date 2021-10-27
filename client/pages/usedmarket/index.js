@@ -5,6 +5,8 @@ import {useState, useEffect, useRef} from 'react';
 import UsedMarketSortingButton from '../../components/UsedMarketSortingButton';
 import UsedItemList from '../../components/UsedItemList';
 import Link from 'next/link';
+import alertNeedToLogin from "../../utils/alertNeedToLogin";
+import {useRouter} from "next/router";
 
 const UsedMarketContainer = styled.div`
   margin: 0 150px 0 150px;
@@ -34,20 +36,22 @@ const Title = styled.h1`
 
 
 const Index = () => {
+  const router = useRouter();
 
   const onClickUploadButton = () => {
-
+    if (alertNeedToLogin()) return;
+    router.push('/usedmarket/upload');
   };
 
     return (
       <>
         <Title>중고장터</Title>
         <UsedMarketContainer>
-          <Link href={'/usedmarket/upload'}>
-          <UploadButton>
+          {/*<Link href={'/usedmarket/upload'}>*/}
+          <UploadButton onClick={onClickUploadButton}>
             Upload New Item
           </UploadButton>
-          </Link>
+          {/*</Link>*/}
           <UsedMarketSortingButton/>
           <UsedItemList/>
         </UsedMarketContainer>

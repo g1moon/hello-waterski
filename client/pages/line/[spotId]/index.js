@@ -13,6 +13,7 @@ import {
   MainInfoAndCurrent,
   WatingInfoContainer,
 } from './styles';
+import alertNeedToLogin from "../../../utils/alertNeedToLogin";
 
 
 const spotLine = ({query}) => {
@@ -69,6 +70,7 @@ const spotLine = ({query}) => {
 
   //줄서기 등록
   const _onClickLineUp = () => {
+    if (alertNeedToLogin()) return;
     setIsOpenUploadModal(true);
     setIsActiveBlackout(true);
   }

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import fetcher from "../../utils/fetcher";
 import {LikeButton, SpotLike, SpotLikeImage} from "./styles";
+import alertNeedToLogin from "../../utils/alertNeedToLogin";
 
 const SpotLikeButton = ({likeCount, spotId}) => {
   const [isLiked, setIsLiked] = useState(null);
@@ -16,7 +17,6 @@ const SpotLikeButton = ({likeCount, spotId}) => {
     const userId = sessionStorage.getItem('userId');
     const objForPost = {userId, spotId};
     const res = await fetcher('post', `/spotLikes/isLiked`, objForPost);
-    console.log('res',spotId, res);
     setIsLiked(res);
   };
 
@@ -32,7 +32,6 @@ const SpotLikeButton = ({likeCount, spotId}) => {
   }
 
   const dislikeSpot = async () => {
-    console.log('clicked dislike', spotId);
     const userId = sessionStorage.getItem('userId');
     const objForDelete = {userId, spotId}
     const deletedId = await fetcher('delete', `/spotLikes/like`, {params: objForDelete});
@@ -48,6 +47,7 @@ const SpotLikeButton = ({likeCount, spotId}) => {
   }
 
   const onClickLikeButton = (e) => {
+    if (alertNeedToLogin()) return;
     isLiked ? dislikeSpot() : likeSpot();
   }
 
