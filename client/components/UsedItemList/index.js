@@ -31,7 +31,6 @@ const Index = () => {
       <>
           <Row>
               {allUsedItemData.map(usedItem => {
-                  console.log(usedItem);
                   return (
                     <Colum>
                         <UsedItem usedItem={usedItem}/>
