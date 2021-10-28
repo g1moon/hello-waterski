@@ -3,6 +3,26 @@ import {v4} from "uuid";
 
 const getSpotLikes = () => readDB('spotLikes');
 const setSpotLikes = data => writeDB('spotLikes', data);
+const getSpots = () => readDB('spots');
+const setSpots = data => writeDB('spots', data);
+
+const updateSpotLikeReturnNewSpotLike = (flag, spotId) => {
+  const spots = getSpots()
+  const willChangeSpotIndex = spots.findIndex(spot => spot.spotId === spotId);
+  if (willChangeSpotIndex < 0) throw 'does not exist';
+
+  const newLike = flag === 'like'
+    ? spots[willChangeSpotIndex]['like'] + 1
+    : spots[willChangeSpotIndex]['like'] - 1;
+
+  const newSpot = { ...spots[willChangeSpotIndex], like: newLike }
+
+  spots.splice(willChangeSpotIndex, 1, newSpot);
+  setSpots(spots)
+
+  return newLike;
+};
+
 
 const spotLikesRoute = [
   {
@@ -48,7 +68,10 @@ const spotLikesRoute = [
         };
         spotLikes.unshift(newSpotLike);
         setSpotLikes(spotLikes);
-        res.send(newSpotLike);
+
+        const newLike = updateSpotLikeReturnNewSpotLike('like', spotId);
+        res.send({newSpotLike, newLike});
+
       } catch (err) {
         res.send({error: err});
       }
@@ -66,7 +89,11 @@ const spotLikesRoute = [
         const {id: deletedId} = spotLikes[targetIndex];
         spotLikes.splice(targetIndex, 1)
         setSpotLikes(spotLikes);
-        res.send(deletedId);
+
+
+        const newLike = updateSpotLikeReturnNewSpotLike('dislike', spotId);
+        res.send({ deletedId, newLike });
+
       } catch (err) {
         res.send({error: err});
       }
