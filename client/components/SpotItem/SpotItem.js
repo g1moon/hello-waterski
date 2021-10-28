@@ -28,9 +28,9 @@ const SpotItem = ({oneSpotData}) => {
         </SpotInfoContainer>
 
         <SpotImageContainer>
-          <Link href={`/line/[spotId]`} as={`/line/${spotId}`}>
+          <DetailLink href={`/line/${spotId}`}>
             <SpotImage src={spotImage}/>
-          </Link>
+          </DetailLink>
         </SpotImageContainer>
       </SpotItemContainer>
     </>

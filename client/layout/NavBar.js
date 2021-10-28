@@ -30,7 +30,6 @@ const HomeButton = styled.a`
   line-height: 60px;
   text-decoration: none;
   transition: opacity .5s;
-  cursor: pointer;
 
   &:hover {
     opacity: 0.3;
@@ -49,7 +48,6 @@ const NavButtonLink = styled.a`
   text-decoration: none;
   font-size: 15px;
   transition: opacity .5s;
-  cursor: pointer;
 
   &:hover {
     opacity: 0.3;
@@ -106,12 +104,12 @@ const NavBar = ({isHome}) => {
 
   return (
     <Container>
-      <Link isHome={isHome} href='/'><HomeButton isHome={isHome}>HELLO WATERSKI</HomeButton></Link>
+      <HomeButton isHome={isHome} href='/'>HELLO WATERSKI</HomeButton>
       <NavContents>
-        <Link href='#'><NavButtonLink isHome={isHome}>출석체크</NavButtonLink></Link>
-        <Link href='/images'><NavButtonLink isHome={isHome}>게시판</NavButtonLink></Link>
-        <Link href='/usedmarket'><NavButtonLink isHome={isHome}>중고장터</NavButtonLink></Link>
-        <Link href='/line'><NavButtonLink isHome={isHome}>줄서기</NavButtonLink></Link>
+        <NavButtonLink isHome={isHome} href='#'>출석체크</NavButtonLink>
+        <NavButtonLink isHome={isHome} href='/images'>게시판</NavButtonLink>
+        <NavButtonLink isHome={isHome} href='/usedmarket'>중고장터</NavButtonLink>
+        <NavButtonLink isHome={isHome} href='/line'>줄서기</NavButtonLink>
         {isLogin
           ? <Link href='/'><LogoutButton onClick={() => logout(setIsLogin)}>login/out</LogoutButton></Link>
           : <Link href='/login'><LoginButton>login/out</LoginButton></Link>

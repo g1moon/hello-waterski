@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Link from 'next/link';
+
 
 const Overlay = styled.div`
   position: absolute;
@@ -87,12 +87,14 @@ const DetailLink = styled.a`
 `
 
 
+
 const UsedItem = ({usedItem}) => {
 
   const {usedItemId, userId, userName, itemState, itemPrice, itemLocation, imageUrl, text, itemTitle} = usedItem;
   return (
-    <Link href={`/useditem/[usedItemId]`} as={`/useditem/${usedItemId}`}>
-      <UsedItemGridContainer>
+
+    <UsedItemGridContainer>
+      <DetailLink href={`/useditem/${usedItemId}`}>
         <Image src={imageUrl}></Image>
         <ItemInfo>
           <ItemTitle>{itemTitle}</ItemTitle>
@@ -102,9 +104,8 @@ const UsedItem = ({usedItem}) => {
         <Overlay>
           <OverlayText>더 보기</OverlayText>
         </Overlay>
-      </UsedItemGridContainer>
-    </Link>
-
+      </DetailLink>
+    </UsedItemGridContainer>
   )
 };
 
