@@ -20,12 +20,12 @@ const Line = () => {
     };
 
     const getTopThreeSpot = () => {
-        let result;
-        result = allSpotData.sort(function (a, b) {
+        const tmp = [...allSpotData];
+        const topThreeSpots = tmp.sort(function (a, b) {
             return b.like - a.like;
-        });
-        const topThree = result.slice(0, 3);
-        setTopThreeSpot(topThree);
+        })
+        .slice(0, 3);
+        setTopThreeSpot(topThreeSpots);
     };
 
     useEffect(() => {
@@ -43,14 +43,14 @@ const Line = () => {
     if (isLoading) return <div>로딩</div>;
 
     return (
-        <>
-            <SearchBar/>
-            <TopSpotsList topThreeSpot={topThreeSpot}/>
-            <CarouselContainer>
-                <Carousel/>
-            </CarouselContainer>
-            <SpotList allSpotData={allSpotData}/>
-        </>
+      <>
+          <SearchBar/>
+          <TopSpotsList topThreeSpot={topThreeSpot}/>
+          <CarouselContainer>
+              <Carousel/>
+          </CarouselContainer>
+          <SpotList allSpotData={allSpotData}/>
+      </>
     );
 };
 
