@@ -8,3 +8,11 @@
 yarn
 yarn start
 ```
+
+## ID/PASSWORD For The Demo
+```JSON
+{ 
+  "ID" : "waterskiId",
+  "PW" : "waterskiPw",
+}
+```
