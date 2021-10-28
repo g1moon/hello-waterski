@@ -13,6 +13,20 @@ const spotsRoute = [
       res.send(spots);
     }
   },
+  {
+    method: 'get',
+    route: '/spots/like',
+    handler: ({query}, res) => {
+      try {
+        const {spotId} = query;
+        const spots = getSpots();
+        const targetIndex = spots.findIndex(spot => spot.spotId === spotId);
+        res.send(spots[targetIndex]['like'] + '');
+      } catch (err){
+        res.send({error: err});
+      }
+    }
+  }
 ];
 
 export default spotsRoute;
