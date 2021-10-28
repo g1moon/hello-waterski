@@ -17,4 +17,4 @@ App.getInitialProps = async ({ ctx, Component }) => {
     return { pageProps }
 }
 
-export default App
+export default App;
