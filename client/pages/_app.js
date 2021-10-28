@@ -10,15 +10,15 @@ const App = ({Component, pageProps}) => {
   return (
     <>
       <GlobalStyle/>
-        <NavBar/>
-        <Component {...pageProps} />
+      <NavBar/>
+      <Component {...pageProps} />
     </>
-   );
+  );
 };
 
-App.getInitialProps = async ({ ctx, Component }) => {
-    const pageProps = await Component.getInitialProps?.(ctx)
-    return { pageProps }
+App.getInitialProps = async ({ctx, Component}) => {
+  const pageProps = await Component.getInitialProps?.(ctx)
+  return {pageProps}
 }
 
 export default wrapper.withRedux(App);
