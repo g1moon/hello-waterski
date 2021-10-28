@@ -9,7 +9,7 @@ yarn
 yarn start
 ```
 
-## ID/PASSWORD For The Demo
+## Id/Password For The Demo
 ```JSON
 { 
   "ID" : "waterskiId",
