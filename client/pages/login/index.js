@@ -70,7 +70,6 @@ const LoginPage = () => {
         e.preventDefault();
         setLoginId('');
         setLoginPassword('');
-        console.log('login');
         const body = {id: loginId, password: loginPassword}
         login(body, '/', router);
     };

@@ -13,7 +13,6 @@ const logout = (setLoginState) => {
                 setLoginState(false);
                 alert('로그아웃을 성공했습니다.');
             } else {
-                console.log('로그아웃실패');
             }
         })
         .catch((err) => console.log(err))

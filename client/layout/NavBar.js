@@ -93,7 +93,6 @@ const NavBar = ({isHome}) => {
   const [isLogin, setIsLogin] = useState(null);
 
   useEffect(() => {
-    console.log('checksdjfasdkfj');
     checkLogin(setIsLogin);
   }, []);
 

@@ -1,4 +1,4 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
+import {createSlice, createSelector, current} from '@reduxjs/toolkit';
 import { useditemAsyncAction } from './saga';
 
 export const USEDITEM = 'useditem';
@@ -25,7 +25,7 @@ const useditemSlice = createSlice({
     .addCase(
       `${useditemAsyncAction.getUseditemAll.success}`,
       (state, action) => {
-        state.useditem.data = action.payload.data;
+        state.useditem.data.useditemAllData = action.payload.data;
       },
     )
     .addCase(

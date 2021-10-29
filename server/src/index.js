@@ -51,7 +51,6 @@ routes.forEach(({ method, route, handler }) => {
 })
 
 app.post("/saveImage", upload.single("img"), function(req, res, next) {
-  console.log(req.body);
   res.send({
     fileName: req.file.filename
   });

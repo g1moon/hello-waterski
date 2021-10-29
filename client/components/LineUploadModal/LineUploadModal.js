@@ -43,7 +43,6 @@ const LineUploadModal = ({isOpenUploadModal,
     const objForPost = {userId, userName, spotId, boatType, ridingType};
     const newLine = await fetcher('post', '/lines', objForPost);
     if (!newLine) return Error('줄을 등록하는데 에러가 발생했습니다.');
-    console.log(`newLine : ${newLine}`);
     setAllLineData(prev => [...prev, newLine]);
   }
 

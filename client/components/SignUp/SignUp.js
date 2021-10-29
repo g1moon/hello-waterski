@@ -50,8 +50,6 @@ const SignUp = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log('submit');
-    console.log(id, nickname, password, passwordConfirm);
     const objForRegistrationId = {id, nickname, password}
     if (isPossibleId && isMatchedPassword === false) alert('아이디 중복 체크와 입력한 비밀번호들을 일치시켜주세요.');
     const newUser = await fetcher('post', '/users', objForRegistrationId);
@@ -61,7 +59,6 @@ const SignUp = () => {
 
   const onClickIdChecker = async (e) => {
     e.preventDefault();
-    console.log('click 중복');
     const objForIdChecking = {'id': id};
     const result = await fetcher('post', '/users/isPossibleId', objForIdChecking);
     result ? alert('사용가능한 아이디 입니다.') : alert('이미 사용중인 아이디 입니다. 다른 아이디를 입력하세요.');

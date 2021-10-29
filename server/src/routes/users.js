@@ -62,7 +62,6 @@ const usersRoute = [
         const requestedId = body.id;
         const users = getUsers();
         const result = users.findIndex(user => user.id === requestedId) === -1;
-        console.log(result);
         res.send(result);
       } catch (err) {
         res.send({error: err});

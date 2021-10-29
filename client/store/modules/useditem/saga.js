@@ -20,8 +20,6 @@ export const getUseditemAll = createAsyncAction(
 function* getUsedItemAllSaga() {
   try {
     const { data } = yield call(useditemServices.getUseditemAll);
-
-    //put( action
     yield put(getUseditemAll.success({data}));
   } catch (e) {
     yield put(getUseditemAll.failure());

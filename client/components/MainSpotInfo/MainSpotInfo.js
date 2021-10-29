@@ -51,7 +51,6 @@ const Text = styled.div`
 const MainSpotInfo = ({oneSpotInfo}) => {
 
   if (oneSpotInfo == null) {
-    console.log('hello');
     return <div>로딩중</div>;
   }
 

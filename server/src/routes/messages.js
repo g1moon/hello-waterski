@@ -80,8 +80,6 @@ const messagesRoute = [
 
             try {
                 const msgs = getMsgs()
-                console.log(msgs[0]);
-                console.log('id', id);
                 const targetIndex = msgs.findIndex(msg => msg.userId === userId)
                 if (targetIndex < 0) throw '메시지가 없습니다.'
                 if (msgs[targetIndex].userId !== userId) throw '사용자가 다릅니다.'
