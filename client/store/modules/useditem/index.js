@@ -19,19 +19,23 @@ const useditemSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-    .addCase(`${useditemAsyncAction.getUseditemAll.request}`, (state) => {
+    .addCase(`${useditemAsyncAction.getUseditemAll.request}`, (state, action) => {
+      console.log('request');
       state.useditem.loading = true;
     })
     .addCase(
       `${useditemAsyncAction.getUseditemAll.success}`,
       (state, action) => {
-        state.useditem.data.useditemAllData = action.payload.data;
+        console.log(action.payload.data);
+        state.useditem.data = action.payload.data;
+        state.useditem.loading = false;
       },
     )
     .addCase(
       `${useditemAsyncAction.getUseditemAll.failure}`,
       (state, action) => {
         state.useditem = initialState.useditem;
+        state.useditem.loading = false;
       },
     );
   },
@@ -39,20 +43,17 @@ const useditemSlice = createSlice({
 
 const selfSelector = (state) => state[USEDITEM];
 
-const useditemSelector = createSelector(selfSelector, (state) => state.useditem);
+const useditemSelector = createSelector(selfSelector, (state) => {
+  return state.useditem;
+});
 
-// const tickerSelector = createSelector(
-//   bithumbSelector,
-//   (bithumb) => bithumb.ticker,
-// );
-
-const UseditemSelector = {
+export const UseditemSelector = {
   loading: createSelector(useditemSelector, (useditem) => useditem.loading),
   data: createSelector(useditemSelector, (useditem) => useditem.data),
   error: createSelector(useditemSelector, (useditem) => useditem.error),
 }
 
-export const useditemAllDataSelector = createSelector(useditemSelector, (useditem) => useditem.data.useditemAllData);
+// export const useditemAllDataSelector = createSelector(useditemSelector, (useditem) => useditem.data.useditemAllData);
 
 export const useditemAction = useditemSlice.actions;
 export const useditemReducer = useditemSlice.reducer;

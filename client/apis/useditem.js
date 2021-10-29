@@ -1,8 +1,9 @@
 import fetcher from "../utils/fetcher";
 const useditemServices = {
   async getUseditemAll() {
-    const response = await fetcher('get','/useditem');
-    return response;
+    const res = await fetcher('get','/useditems');
+    console.log('retrun---', res);
+    return res;
   },
 };
 
