@@ -199,9 +199,9 @@ const upload = () => {
     router.push('/usedmarket');
   };
 
-  useEffect(() => {
-    getAndSetUsedItems();
-  }, [usedItems]);
+  // useEffect(() => {
+  //   getAndSetUsedItems();
+  // }, [usedItems]);
 
   if (usedItems === []) return <div>로딩중</div>;
 
