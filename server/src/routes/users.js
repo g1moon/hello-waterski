@@ -71,11 +71,12 @@ const usersRoute = [
   {
     method: 'post',
     route: '/users/login',
-    handler: ({ id, password }, res) => {
+    handler: ( { body }, res) => {
       try {
+        const {loginId, loginPassword} = body;
         const users = getUsers();
-        const targetIndex = users.findIndex(users => users.id === id && users.password === password);
-        return targetIndex < 0 ? false : true;
+        const targetIndex = users.findIndex(user => user.id === loginId && user.password === loginPassword);
+        res.send(targetIndex >= 0 ? users[targetIndex] : false);
       } catch (err) {
         res.send({error: err});
       }

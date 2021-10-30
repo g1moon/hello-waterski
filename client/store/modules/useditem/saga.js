@@ -43,7 +43,7 @@ export const postUseditem = createAsyncAction(
 function* postUseditemSaga(action) {
   // const {imageFile, objForPost} = action.payload;
   try {
-    const newUseditem = yield call(useditemServices.postUseditem(action.payload));
+    const newUseditem = yield call(useditemServices.postUseditem, action.payload);
     yield put(postUseditem.success({newUseditem}));
   } catch (e) {
     yield put(postUseditem.failure());
