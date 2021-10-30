@@ -7,7 +7,7 @@ const initialState = {
   useditem: {
       loading: false,
       data: {
-        useditemAllData: [],
+        useditemAll: [],
       },
       error: null,
   },
@@ -26,7 +26,6 @@ const useditemSlice = createSlice({
     .addCase(
       `${useditemAsyncAction.getUseditemAll.success}`,
       (state, action) => {
-        console.log(action.payload.data);
         state.useditem.data = action.payload.data;
         state.useditem.loading = false;
       },
@@ -40,6 +39,10 @@ const useditemSlice = createSlice({
     );
   },
 });
+
+export const useditemAction = useditemSlice.actions;
+export const useditemReducer = useditemSlice.reducer;
+
 
 const selfSelector = (state) => state[USEDITEM];
 
@@ -55,5 +58,4 @@ export const UseditemSelector = {
 
 // export const useditemAllDataSelector = createSelector(useditemSelector, (useditem) => useditem.data.useditemAllData);
 
-export const useditemAction = useditemSlice.actions;
-export const useditemReducer = useditemSlice.reducer;
+

@@ -18,6 +18,10 @@ export const getUseditemAll = createAsyncAction(
   GET_USEDITEM_ALL_FAILURE,
 )();
 
+// 3.1 ~AsyncAction - api functions
+export const useditemAsyncAction = {
+  getUseditemAll,
+};
 
 // 4. saga
 function* getUseditemAllSaga(action) {
@@ -29,12 +33,8 @@ function* getUseditemAllSaga(action) {
   }
 }
 
-// 5. ~AsyncAction - api functions
-export const useditemAsyncAction = {
-  getUseditemAll,
-};
 
-// 6. ~Saga() - takeEvery 등
+// 5. storeSaga() - takeEvery 등
 export default function* useditemSaga() {
   yield takeLatest(GET_USEDITEM_ALL, getUseditemAllSaga);
 };

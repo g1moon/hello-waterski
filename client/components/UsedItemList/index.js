@@ -1,12 +1,9 @@
-import {useState, useEffect, useRef} from 'react';
-import fetcher from '../../utils/fetcher';
+import { useEffect } from 'react';
 import UsedItem from '../UsedItem/UsedItem';
 import {
-  UsedItemListContainer,
   Row,
   Colum
 } from './styles';
-import TopSpotsList from "../TopSpotsList/TopSpotsList";
 import useUseditem from "../../hooks/useUseditem";
 
 const Index = () => {
@@ -19,10 +16,9 @@ const Index = () => {
 
   useEffect(() => {
     getUseditemAll();
-  }, []);₩
+  }, []);
 
-
-  if(useditemAllLoading || useditemAllData.length > 0) return <div>로딩중</div>;
+  if (useditemAllLoading || !(useditemAllData.length > 0)) return <div>로딩중</div>;
 
   return (
     <>
