@@ -5,13 +5,16 @@ import useInput from "../../hooks/useInput";
 import axios from "axios";
 import fetcher from "../../utils/fetcher";
 import {useRouter} from "next/router";
+import useditem from "../../apis/rest/useditem";
+import {useditemAsyncAction} from "../../store/modules/useditem/saga";
+import {useAppDispatch} from "../../store";
+import useUseditemUpload from "../../hooks/useUseditemUpload";
 
 const Container = styled.div`
   width: 50%;
   margin: 10px auto;
   height: 80rem;
 `;
-
 const UploadForm = styled.form`
   //modal-content
   flex-direction: column;
@@ -22,18 +25,12 @@ const InnerFormContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-
 const FormHead = styled.h1`
   font-size: 2rem;
 `;
-
-//label
 const Label = styled.label`
   font-size: 0.8rem;
 `;
-
-/*----------------Input------------------*/
 const Input = styled.input`
   width: 100%;
   padding: 15px;
@@ -47,9 +44,6 @@ const Input = styled.input`
     outline: none;
   }
 `;
-
-//userdItemId, userId, itemState,
-//imageUrl 처리해야함.
 const UserNameInput = styled(Input)``;
 const ItemTitleInput = styled(Input)``;
 const ItemPrceInput = styled(Input)``;
@@ -68,12 +62,8 @@ const DescriptionInput = styled.textarea`
     outline: none;
   }
 `;
-
-
-/*-----------button-----------------*/
 const ButtonContainer = styled.div`;
 `;
-
 const Button = styled.button`
   background-color: #04AA6D;
   color: white;
@@ -89,7 +79,6 @@ const Button = styled.button`
     opacity: 1;
   }
 `;
-
 const CancelButton = styled(Button)`
   float: left;
   width: 50%;
@@ -103,107 +92,34 @@ const SubmitButton = styled(Button)`
   background-color: #04AA6D;
 `;
 
-
 const upload = () => {
 
-  const [usedItems, setUsedItems] = useState([]);
+  const {
+    onChangeImageFile,
+    resetAllInputs,
+    onClickCancel,
+    onSubmit,
+    userName,
+    title,
+    price,
+    location,
+    description,
+    imageFile,
+    imagePreview,
+    setUserName,
+    setTitle,
+    setPrice,
+    setLocation,
+    setDescription,
+    setImageFile,
+    setImagePreview,
+    onChangeUserName,
+    onChangeTitle,
+    onChangePrice,
+    onChangeLocation,
+    onChangeDescription,
+  } = useUseditemUpload();
 
-  const [userName, setUserName, onChangeUserName] = useInput('');
-  const [title, setTitle, onChangeTitle] = useInput('');
-  const [price, setPrice, onChangePrice] = useInput(0);
-  const [location, setLocation, onChangeLocation] = useInput('');
-  const [description, setDescription, onChangeDescription] = useInput('');
-  const [imageFile, setImageFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
-  const imagePath = useRef('');
-
-  const router = useRouter();
-
-  const getAndSetUsedItems = async () => {
-    const data = await fetcher('get', '/useditems');
-    setUsedItems(data);
-  };
-
-  const resetAllInputs = () => {
-    setUserName('');
-    setTitle('');
-    setPrice(0);
-    setLocation('');
-    setDescription('');
-    setImageFile(null);
-    setImagePreview(null);
-  };
-
-  const onChangeImageFile = (e) => {
-    setImageFile(prev => e.target.files[0]);
-    const reader = new FileReader();
-
-    // 1. 파일 읽고 버퍼에 저장.
-    reader.readAsDataURL(e.target.files[0]);
-    // 2. 읽기가 완료되면 아래 코드 실행.
-    reader.onloadend = () => {
-      const image = reader.result; //파일 비트맵 데이터(이거로 미리보기 가능)
-      const imageString = image.toString(); //비트맵 데이터 저장 가능하게 스트링으로 변경.
-      setImagePreview(imageString); //preview image 설정
-    };
-  };
-
-  const saveImage = async () => {
-    const formData = new FormData();
-    formData.append("img", imageFile);
-    await
-    axios({
-      method: 'post',
-      url: '/saveImage',
-      baseURL: "http://localhost:8000",
-      data: formData,
-      headers: { "Content-Type": "multipart/form-data" },
-    })
-    .then(res => {
-      const {fileName} = res.data;
-      imagePath.current = `http://localhost:8000/img/${fileName}`;
-    })
-    .catch(err => {
-      console.error(err);
-    });
-  };
-
-  const createNewPost = async () => {
-    const userId = sessionStorage.getItem('userId');
-    const imageUrl = imagePath.current;
-    const objForPost = {
-      title,
-      price,
-      location,
-      description,
-      userId,
-      userName,
-      imageUrl,
-    }
-    const newItem = await fetcher('post', '/useditems', objForPost);
-  };
-
-  const onClickCancel = (e) => {
-    e.preventDefault();
-    resetAllInputs();
-    alert('아이템 등록을 취소합니다.');
-    router.push('/usedmarket');
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    await saveImage();
-    await createNewPost()
-    resetAllInputs();
-    alert('아이템 등록을 성공하셨습니다.');
-    router.push('/usedmarket');
-  };
-
-  // useEffect(() => {
-  //   getAndSetUsedItems();
-  // }, [usedItems]);
-
-  if (usedItems === []) return <div>로딩중</div>;
 
   return (
     <>
