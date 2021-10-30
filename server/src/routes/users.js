@@ -33,17 +33,16 @@ const usersRoute = [
   },
 
   //post users (회원가입)
-  //body : "byeId": { "name": "bye", "nickanme": "바이", "age": 20 }
+  //body : "byeId": { "name": "bye", "nickanme": "바이", "password": "~~' }
   {
     method: 'post',
     route: '/users',
     handler: ({body}, res) => {
       try {
+        console.log(body);
         const users = getUsers();
         const newUser = {
           ...body,
-          "favoriteSpots": [],
-          "favoriteUsedItems": [],
         }
         users.unshift(newUser);
         setUsers(users);
@@ -68,6 +67,20 @@ const usersRoute = [
       }
     }
   },
+  //회원가입 체크 + user정보 저장.
+  {
+    method: 'post',
+    route: '/users/login',
+    handler: ({ id, password }, res) => {
+      try {
+        const users = getUsers();
+        const targetIndex = users.findIndex(users => users.id === id && users.password === password);
+        return targetIndex < 0 ? false : true;
+      } catch (err) {
+        res.send({error: err});
+      }
+    }
+  }
 ];
 
 export default usersRoute
