@@ -4,15 +4,12 @@ import {
   Row,
   Colum
 } from './styles';
+
 import useUseditem from "../../hooks/useUseditem";
 
 const Index = () => {
 
-  const {getUseditemAll,
-    useditemAllLoading,
-    useditemAllData,
-    useditemAllError
-  } = useUseditem();
+  const {getUseditemAll, useditemAllLoading, useditemAllData } = useUseditem();
 
   useEffect(() => {
     getUseditemAll();
