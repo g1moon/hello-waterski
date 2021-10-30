@@ -5,9 +5,6 @@ import {useditemAsyncAction} from "../store/modules/useditem/saga";
 import {useSelector} from "react-redux";
 
 const useUseditemData = () => {
-  // const selector = ({useditem: {loading, data}}) => ({ loading, data});
-  // const {loading, data} = useSelector(selector);
-
   const dispatch = useAppDispatch();
 
   const [useditemAllLoading, useditemAllData, useditemAllError] = [
@@ -21,7 +18,7 @@ const useUseditemData = () => {
   }, [dispatch]);
 
 
-  return {
+  return{
     getUseditemAll,
     useditemAllLoading,
     useditemAllData,
