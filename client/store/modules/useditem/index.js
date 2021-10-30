@@ -1,15 +1,15 @@
 import {createSlice, createSelector, current} from '@reduxjs/toolkit';
-import { useditemAsyncAction } from './saga';
+import {postUseditem, useditemAsyncAction} from './saga';
 
 export const USEDITEM = 'useditem';
 
 const initialState = {
   useditem: {
-      loading: false,
-      data: {
-        useditemAll: [],
-      },
-      error: null,
+    loading: false,
+    data: {
+      useditemAll: [],
+    },
+    error: null,
   },
 };
 
@@ -20,7 +20,6 @@ const useditemSlice = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(`${useditemAsyncAction.getUseditemAll.request}`, (state, action) => {
-      console.log('request');
       state.useditem.loading = true;
     })
     .addCase(
@@ -28,14 +27,27 @@ const useditemSlice = createSlice({
       (state, action) => {
         state.useditem.data = action.payload.data;
         state.useditem.loading = false;
-      },
+      }
     )
     .addCase(
       `${useditemAsyncAction.getUseditemAll.failure}`,
       (state, action) => {
         state.useditem = initialState.useditem;
         state.useditem.loading = false;
-      },
+      }
+    )
+    .addCase(`${useditemAsyncAction.postUseditem.request}`, (state, action) => {
+        //action.payload = {imageFile: File, objForPost: {…}}
+        state.useditem.loading = true;
+      }
+    )
+    .addCase(`${useditemAsyncAction.postUseditem.success}`, (state, action) => {
+        state.useditem.data.unshift(action.payload.data);
+      }
+    )
+    .addCase(`${useditemAsyncAction.postUseditem.failure}`, (state, action) => {
+        state.useditem = initialState.useditem;
+      }
     );
   },
 });
