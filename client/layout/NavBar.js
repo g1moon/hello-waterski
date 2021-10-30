@@ -3,6 +3,9 @@ import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import checkLogin from '../utils/checkLogin'
 import logout from '../utils/logout';
+import {useAppSelector} from "../store";
+import {LoginStatusSelector} from "../store/modules/user";
+import useUser from "../hooks/useUser";
 
 const Container = styled.div`
   z-index: 100;
@@ -90,18 +93,11 @@ const LoginButton = styled.button`
 
 const NavBar = ({isHome}) => {
 
-  const [isLogin, setIsLogin] = useState(null);
+  const { loginStatus, logout, onClickNavLogin, onClickLogout } = useUser();
 
   useEffect(() => {
-    checkLogin(setIsLogin);
-  }, []);
-
-  useEffect(() => {
-  }, [isLogin]);
-
-  if (isLogin === null) {
-    return <div>로딩중</div>;
-  }
+    console.log(loginStatus);
+  }, [loginStatus]);
 
   return (
     <Container>
@@ -111,9 +107,9 @@ const NavBar = ({isHome}) => {
         <Link href='/images'><NavButtonLink isHome={isHome}>게시판</NavButtonLink></Link>
         <Link href='/usedmarket'><NavButtonLink isHome={isHome}>중고장터</NavButtonLink></Link>
         <Link href='/line'><NavButtonLink isHome={isHome}>줄서기</NavButtonLink></Link>
-        {isLogin
-          ? <Link href='/'><LogoutButton onClick={() => logout(setIsLogin)}>login/out</LogoutButton></Link>
-          : <Link href='/login'><LoginButton>login/out</LoginButton></Link>
+        {loginStatus.id === ''
+          ? <Link href='/'><LogoutButton onClick={onClickNavLogin}>login</LogoutButton></Link>
+          : <Link href='/login'><LoginButton onClick={onClickLogout}>logout</LoginButton></Link>
         }
       </NavContents>
     </Container>
