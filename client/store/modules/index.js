@@ -1,12 +1,14 @@
-import { combineReducers } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
+import {combineReducers} from '@reduxjs/toolkit';
+import {persistReducer} from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
-import { all } from 'redux-saga/effects';
+import {all} from 'redux-saga/effects';
 
-import { useditemReducer, USEDITEM} from "./useditem";
+import {useditemReducer, USEDITEM} from "./useditem";
 import useditemSaga from '../modules/useditem/saga';
 import {HYDRATE} from "next-redux-wrapper";
+import userSaga from "./user/saga";
+import {USER, userReducer} from "./user";
 
 const rootPersistConfig = {
   key: 'root',
@@ -25,6 +27,7 @@ export const rootReducer = (state, action) => {
     default: {
       const combinedReducer = combineReducers({
         [USEDITEM]: useditemReducer,
+        [USER]: userReducer,
       });
       return combinedReducer(state, action);
     }
@@ -32,11 +35,10 @@ export const rootReducer = (state, action) => {
 };
 
 export function* rootSaga() {
-  yield all([useditemSaga()]);
+  yield all([useditemSaga(), userSaga()]);
 }
 
 export default persistReducer(rootPersistConfig, rootReducer);
-
 
 
 //--------
