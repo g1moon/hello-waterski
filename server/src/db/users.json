@@ -1,6 +1,32 @@
 [
-  {"id":"gimoonId", "name": "gimoon", "nickname": "기문", "favoriteSpots": [], "favoriteUsedItems": []},
-  {"id":"yongsId", "name": "yongs", "nickanme": "아용", "favoriteSpots": [], "favoriteUsedItems": []},
-  {"id":"helloX", "name": "helloName", "nickanme": "helloNickname", "favoriteSpots": [], "favoriteUsedItems": []},
-  {"id":"byeId", "name": "bye", "nickanme": "바이", "favoriteSpots": [], "favoriteUsedItems": []}
+  {
+    "id": "asdsjkljk",
+    "nickname": "waterwss",
+    "password": "123"
+  },
+  {
+    "id": "gimoonId",
+    "name": "gimoon",
+    "nickname": "기문"
+  },
+  {
+    "id": "yongsId",
+    "name": "yongs",
+    "nickanme": "아용"
+  },
+  {
+    "id": "helloX",
+    "name": "helloName",
+    "nickanme": "helloNickname"
+  },
+  {
+    "id": "byeId",
+    "name": "bye",
+    "nickanme": "바이"
+  },
+  {
+    "id": "waterskiId",
+    "name": "waterskiName",
+    "nickanme": "워터스키조앙"
+  }
 ]
