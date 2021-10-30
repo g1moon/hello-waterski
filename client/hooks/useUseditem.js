@@ -13,10 +13,9 @@ const useUseditemData = () => {
     useAppSelector(UseditemSelector.error),
   ];
 
-  const getUseditemAll = useCallback(() => {
+  const getUseditemAll = () => {
     dispatch(useditemAsyncAction.getUseditemAll.request());
-  }, [dispatch]);
-
+  };
 
   return{
     getUseditemAll,
@@ -24,7 +23,6 @@ const useUseditemData = () => {
     useditemAllData,
     useditemAllError,
   };
-
 };
 
 export default useUseditemData;
