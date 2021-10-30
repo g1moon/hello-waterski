@@ -1,8 +1,10 @@
 import {createSlice, createSelector, current} from '@reduxjs/toolkit';
 import {postUseditem, useditemAsyncAction} from './saga';
 
+//
 export const USEDITEM = 'useditem';
 
+// 초깃값
 const initialState = {
   useditem: {
     loading: false,
@@ -13,6 +15,7 @@ const initialState = {
   },
 };
 
+// createSlice
 const useditemSlice = createSlice({
   name: USEDITEM,
   initialState,
@@ -55,19 +58,13 @@ const useditemSlice = createSlice({
 export const useditemAction = useditemSlice.actions;
 export const useditemReducer = useditemSlice.reducer;
 
-
+// selector
 const selfSelector = (state) => state[USEDITEM];
-
-const useditemSelector = createSelector(selfSelector, (state) => {
-  return state.useditem;
-});
-
+const useditemSelector = createSelector(selfSelector, (state) => state.useditem);
+export const useditemAllDataSelector = createSelector(useditemSelector, (useditem) => useditem.data.useditemAllData);
 export const UseditemSelector = {
   loading: createSelector(useditemSelector, (useditem) => useditem.loading),
   data: createSelector(useditemSelector, (useditem) => useditem.data),
   error: createSelector(useditemSelector, (useditem) => useditem.error),
-}
-
-// export const useditemAllDataSelector = createSelector(useditemSelector, (useditem) => useditem.data.useditemAllData);
-
+};
 
