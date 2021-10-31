@@ -4,14 +4,19 @@ import GlobalStyle from "../styles/global";
 import React from "react";
 import NavBar from "../layout/NavBar";
 import {Provider} from "react-redux";
-import {wrapper} from "../store";
+import {persistor, store, wrapper} from "../store";
+import { PersistGate } from 'redux-persist/integration/react'
 
 const App = ({Component, pageProps}) => {
   return (
     <>
       <GlobalStyle/>
-      <NavBar/>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <PersistGate loading={<div>로딩</div>} persistor={persistor}>
+          <NavBar/>
+          <Component {...pageProps} />
+        </PersistGate>
+      </Provider>
     </>
   );
 };
