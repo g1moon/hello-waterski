@@ -3,7 +3,7 @@ import UsedMarketSortingButton from '../../components/UsedMarketSortingButton';
 import UsedItemList from '../../components/UsedItemList';
 import {useRouter} from "next/router";
 import useUser from "../../hooks/useUser";
-
+//
 const UsedMarketContainer = styled.div`
   margin: 0 150px 0 150px;
 `;
