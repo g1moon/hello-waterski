@@ -40,10 +40,23 @@ const userSlice = createSlice({
       state.user.loading = true;
     })
     .addCase(`${userAsyncAction.getUsers.success}`, (state, action) => {
+      // action.payload: {id, nickanme, password}
       state.user.loading = false;
       state.user.data = action.payload;
     })
     .addCase(`${userAsyncAction.getUsers.failure}`, (state, action) => {
+      state.user.loading = false;
+      state.user = initialState.users;
+    })
+    .addCase(`${userAsyncAction.signUp.request}`, (state, action) => {
+      state.user.loading = true;
+    })
+    .addCase(`${userAsyncAction.signUp.success}`, (state, action) => {
+      // action.payload: {id, nickanme, password}
+      state.user.loading = false;
+      state.user.data.users.unshift(action.payload);
+    })
+    .addCase(`${userAsyncAction.signUp.failure}`, (state, action) => {
       state.user.loading = false;
       state.user = initialState.users;
     })
@@ -57,7 +70,7 @@ const userSlice = createSlice({
         return;
       }
       const {id, nickname, password} = action.payload;
-      state.loginStatus.data = { id, nickname }
+      state.loginStatus.data = {id, nickname}
     })
     .addCase(`${userAsyncAction.login.failure}`, (state, action) => {
       state.loginStatus.loading = false;
