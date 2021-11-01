@@ -3,16 +3,17 @@ import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import checkLogin from '../utils/checkLogin'
 import logout from '../utils/logout';
-import {useAppSelector} from "../store";
+import {store, useAppSelector} from "../store";
 import {LoginStatusSelector} from "../store/modules/user";
 import useUser from "../hooks/useUser";
+import {useSelector} from "react-redux";
 
 const Container = styled.div`
   z-index: 100;
   display: flex;
   justify-content: space-between;
   background: none;
-  
+
 `;
 
 const NavContents = styled.div`
@@ -93,11 +94,8 @@ const LoginButton = styled.button`
 
 const NavBar = ({isHome}) => {
 
-  const { loginStatus, logout, onClickNavLogin, onClickLogout } = useUser();
-
-  useEffect(() => {
-    console.log(loginStatus);
-  }, [loginStatus]);
+  const {loginStatusLoading, loginStatus, onClickNAvLogout, onClickNavLogin} = useUser();
+  console.log(loginStatus);
 
   return (
     <Container>
@@ -108,8 +106,8 @@ const NavBar = ({isHome}) => {
         <Link href='/usedmarket'><NavButtonLink isHome={isHome}>중고장터</NavButtonLink></Link>
         <Link href='/line'><NavButtonLink isHome={isHome}>줄서기</NavButtonLink></Link>
         {loginStatus.id === ''
-          ? <Link href='/'><LogoutButton onClick={onClickNavLogin}>login</LogoutButton></Link>
-          : <Link href='/login'><LoginButton onClick={onClickLogout}>logout</LoginButton></Link>
+          ? <LogoutButton onClick={onClickNavLogin}>login</LogoutButton>
+          : <LoginButton onClick={onClickNAvLogout}>logout</LoginButton>
         }
       </NavContents>
     </Container>
