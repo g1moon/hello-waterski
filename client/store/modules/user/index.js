@@ -5,6 +5,7 @@ import {getUsers, userAsyncAction} from "./saga";
 //
 export const USER = 'user';
 
+
 // 초깃값
 const initialState = {
   user: {
@@ -46,17 +47,6 @@ const userSlice = createSlice({
       state.user.loading = false;
       state.user = initialState.users;
     })
-    // .addCase(`${userAsyncAction.getLoginStatus.request}`, (state, action) => {
-    //   state.loginStatus.loading = true;
-    // })
-    // .addCase(`${userAsyncAction.getLoginStatus.success}`, (state, action) => {
-    //   state.loginStatus.loading = false;
-    //   state.loginStatus.data = action.payload;
-    // })
-    // .addCase(`${userAsyncAction.getLoginStatus.failure}`, (state, action) => {
-    //   state.loginStatus = initialState.users;
-    //   state.loginStatus.loading = false;
-    // })
     .addCase(`${userAsyncAction.login.request}`, (state, action) => {
       state.loginStatus.loading = true;
     })
@@ -82,6 +72,7 @@ export const userReducer = userSlice.reducer;
 // selector
 const selfSelector = (state) => state[USER];
 
+//UserSelector
 const userSelector = createSelector(selfSelector, (state) => state.user);
 export const usersSelector = createSelector(userSelector, (user) =>user.data.users);
 export const UserSelector = {
@@ -90,6 +81,7 @@ export const UserSelector = {
   error: createSelector(userSelector, (user) => user.error)
 };
 
+//LoginStatus
 const loginStatusSelector = createSelector(selfSelector, (state) => state.loginStatus);
 export const LoginStatusSelector = {
   loading: createSelector(loginStatusSelector, (loginStatus) => loginStatus.loading),
