@@ -34,12 +34,12 @@ const usersRoute = [
 
   //post users (회원가입)
   //body : "byeId": { "name": "bye", "nickanme": "바이", "password": "~~' }
+  //body : {name: string, nickname: string, password: string}
   {
     method: 'post',
     route: '/users',
     handler: ({body}, res) => {
       try {
-        console.log(body);
         const users = getUsers();
         const newUser = {
           ...body,
