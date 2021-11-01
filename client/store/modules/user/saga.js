@@ -98,7 +98,9 @@ export const signUp = createAsyncAction(
 
 function* signUpSaga(action) {
   try {
-    const newUser = yield call(userServices.signUp);
+    //action.payload : {id: string, nickname: string, password: string}
+    //newUser : {id: string, nickname: string, password: string}
+    const newUser = yield call(userServices.signUp, action.payload);
     yield put(signUp.success({newUser}));
   } catch (err) {
     yield put(signUp.failure())
