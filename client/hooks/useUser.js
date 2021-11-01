@@ -61,14 +61,14 @@ const useUser = () => {
     router.push('/');
   };
 
-  const onClickLogout = () => {
+  const onClickNAvLogout = () => {
     logout();
     alert('로그아웃되었습니다');
     router.push('/');
   };
 
   const onClickNavLogin = () => {
-    isLogged() === false && router.push('/login');
+    router.push('/login');
   };
 
   return {
@@ -87,7 +87,7 @@ const useUser = () => {
     onClickLogin,
     _onChangeInput,
     loginSuccess,
-    onClickLogout,
+    onClickNAvLogout,
     onClickNavLogin,
   }
 
