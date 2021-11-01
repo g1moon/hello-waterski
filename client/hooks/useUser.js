@@ -69,9 +69,9 @@ const useUser = () => {
     router.push('/login');
   };
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+  const checkNeedToLoginService = () => {
+    return !loginStatus.id;
+  }
 
   return {
     usersLoading,
@@ -94,6 +94,7 @@ const useUser = () => {
     loginSuccess,
     onClickNAvLogout,
     onClickNavLogin,
+    checkNeedToLoginService,
   }
 
 };

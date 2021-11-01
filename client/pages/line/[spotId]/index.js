@@ -13,7 +13,7 @@ import {
   MainInfoAndCurrent,
   WatingInfoContainer,
 } from './styles';
-import alertNeedToLogin from "../../../utils/alertNeedToLogin";
+import useUser from "../../../hooks/useUser";
 
 
 const spotLine = ({query}) => {
@@ -38,6 +38,8 @@ const spotLine = ({query}) => {
   const [isActiveBlackout, setIsActiveBlackout] = useState(false);
 
   const $blackout = useRef(null)
+
+  const {checkNeedToLoginService} = useUser();
 
 
   const getAllSpotData = async () => {
@@ -70,7 +72,10 @@ const spotLine = ({query}) => {
 
   //줄서기 등록
   const _onClickLineUp = () => {
-    if (alertNeedToLogin()) return;
+    if (checkNeedToLoginService()) {
+      alert('로그인이 필요한 서비스 입니다');
+      return;
+    }
     setIsOpenUploadModal(true);
     setIsActiveBlackout(true);
   }

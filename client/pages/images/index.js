@@ -6,7 +6,7 @@ import {useState, useEffect, useRef} from 'react';
 import UploadModal from '../../components/ImageUploadModal/UploadModal';
 import ImageModall from '../../components/ImageModall/ImageModall';
 import fetcher from "../../utils/fetcher";
-import alertNeedToLogin from "../../utils/alertNeedToLogin";
+import useUser from "../../hooks/useUser";
 
 
 const ButtonContainer = styled.div`
@@ -65,6 +65,9 @@ const Index = () => {
 
     const [images, setImages] = useState([]);
 
+    const {checkNeedToLoginService} = useUser();
+
+
     const getAndSetImages = async () => {
       const data = await fetcher('get', '/images');
       setImages(data);
@@ -79,7 +82,10 @@ const Index = () => {
 
     //upload 버튼 누를 시
     const _onClickUpload = () => {
-      if (alertNeedToLogin()) return;
+      if (checkNeedToLoginService()){
+        alert('로그인이 필요한 서비스입니다');
+        return;
+      }
       setIsActiveBlackout(true)
       setIsOpenUploadMdal(true);
     };

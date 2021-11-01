@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import UsedMarketSortingButton from '../../components/UsedMarketSortingButton';
 import UsedItemList from '../../components/UsedItemList';
-import alertNeedToLogin from "../../utils/alertNeedToLogin";
 import {useRouter} from "next/router";
+import useUser from "../../hooks/useUser";
 
 const UsedMarketContainer = styled.div`
   margin: 0 150px 0 150px;
@@ -30,12 +30,15 @@ const UploadButton = styled.button`
 const Title = styled.h1`
 `;
 
-
 const Index = () => {
   const router = useRouter();
+  const {checkNeedToLoginService} = useUser();
 
   const onClickUploadButton = () => {
-    if (alertNeedToLogin()) return;
+    if (checkNeedToLoginService()) {
+      alert('로그인이 필요한 서비스 입니다.');
+      return;
+    }
     router.push('/usedmarket/upload');
   };
 
