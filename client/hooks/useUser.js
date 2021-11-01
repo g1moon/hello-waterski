@@ -1,10 +1,8 @@
 import {useAppDispatch, useAppSelector} from "../store";
 import {LoginStatusSelector, userAction, UserSelector} from "../store/modules/user";
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {userAsyncAction} from "../store/modules/user/saga";
 import {useRouter} from "next/router";
-
-
 
 const useUser = () => {
   const dispatch = useAppDispatch();
@@ -14,16 +12,16 @@ const useUser = () => {
   const [loginPassword, setLoginPassword] = useState('');
   const [okLogin, setOkLogin] = useState(false);
 
-  const [loginStatusLoading, loginStatus, loginStatusError] = [
-    useAppSelector(LoginStatusSelector.loading),
-    useAppSelector(LoginStatusSelector.data),
-    useAppSelector(LoginStatusSelector.error),
-  ];
-
   const [usersLoading, users, usersError] = [
     useAppSelector(UserSelector.loading),
     useAppSelector(UserSelector.data),
     useAppSelector(UserSelector.error),
+  ]
+
+  const [loginStatusLoading, loginStatus, loginStatusError] = [
+    useAppSelector(LoginStatusSelector.loading),
+    useAppSelector(LoginStatusSelector.data),
+    useAppSelector(LoginStatusSelector.error),
   ];
 
   const getUsers = () => {
@@ -71,7 +69,14 @@ const useUser = () => {
     router.push('/login');
   };
 
+  useEffect(() => {
+    getUsers();
+  }, []);
+
   return {
+    usersLoading,
+    users,
+    usersError,
     loginStatusLoading,
     loginStatus,
     getUsers,
