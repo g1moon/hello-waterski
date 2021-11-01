@@ -3,10 +3,11 @@ import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import checkLogin from '../utils/checkLogin'
 import logout from '../utils/logout';
-import {store, useAppSelector} from "../store";
+import {store, useAppDispatch, useAppSelector} from "../store";
 import {LoginStatusSelector} from "../store/modules/user";
 import useUser from "../hooks/useUser";
 import {useSelector} from "react-redux";
+import {userAsyncAction} from "../store/modules/user/saga";
 
 const Container = styled.div`
   z-index: 100;
@@ -91,11 +92,10 @@ const LoginButton = styled.button`
   }
 `;
 
-
 const NavBar = ({isHome}) => {
 
-  const {loginStatusLoading, loginStatus, onClickNAvLogout, onClickNavLogin} = useUser();
-  console.log(loginStatus);
+  const {usersLoading, users, getUsers, loginStatus, onClickNAvLogout, onClickNavLogin} = useUser();
+  const dispatch = useAppDispatch();
 
   return (
     <Container>
