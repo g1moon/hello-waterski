@@ -3,7 +3,7 @@
 수상스키와 관련된 서비스를 제공합니다. 
 
 ## Notion에 프로젝트에 관련된 내용을 정리합니다.
-https://g1moon.notion.site/Hello-Waterski-a592610df5154b8b808e8ba27b80c05d
+Notion URL: https://g1moon.notion.site/Hello-Waterski-a592610df5154b8b808e8ba27b80c05d
 
 ## Getting Started
 
