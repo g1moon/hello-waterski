@@ -1,13 +1,16 @@
 # [Ongoing~~] Hello-Waterski - 수상스키와 관련된 서비스를 제공하는 웹
+![Screen Shot 2021-11-07 at 7 05 08 PM](https://user-images.githubusercontent.com/44131043/140640623-0c780a23-55e1-4ce0-ae33-115ff7da1298.jpg)
 
-<img src="https://user-images.githubusercontent.com/44131043/140636440-8819b079-8c64-4556-a413-a160d801fa74.jpg" alt="drawing" width="700"/>
-<img src="https://user-images.githubusercontent.com/44131043/140636461-62208a1b-1f14-455e-885c-13c2b3661fa0.jpg" alt="drawing" width="700"/>
-<img src="https://user-images.githubusercontent.com/44131043/140636468-f2119b43-4a0a-4e5a-9bbf-eaa270fbb822.jpg" alt="drawing" width="700"/>
-<img src="https://user-images.githubusercontent.com/44131043/140636494-3ab7463c-190b-41bb-a1e1-bef107900733.jpg" alt="drawing" width="700"/>
 
 ## 🔸 Demo
 Demo 동영상 입니다! <br>
 [https://www.youtube.com/watch?v=Oqk7myTPL4U](https://www.youtube.com/watch?v=Oqk7myTPL4U)
+![Screen Shot 2021-11-07 at 7 05 21 PM](https://user-images.githubusercontent.com/44131043/140640627-8d268b86-1999-4a2d-86dd-68f5653ef3be.jpg)
+![Screen Shot 2021-11-07 at 7![Screen Shot 2021-11-07 at 7 05 40 PM](https://user-images.githubusercontent.com/44131043/140640640-57509792-d53b-4fe3-88d3-a1b9a2a2ba24.jpg)
+ 05 30 PM](https://user-images.githubusercontent.com/44131043/140640632-dc5a305b-e150-4773-8908-017304096b15.jpg)
+![Screen Shot 2021-11-07 at 7 05 57 PM](https://user-images.githubusercontent.com/44131043/140640642-72cab30c-f0a7-4771-9a61-8d24b75032f7.jpg)
+![Screen Shot 2021-11-07 at 7 06 07 PM](https://user-images.githubusercontent.com/44131043/140640651-88497579-39b0-4291-8032-93ee54ae95f2.jpg)
+![Screen Shot 2021-11-07 at 7 06 18 PM](https://user-images.githubusercontent.com/44131043/140640657-602d797a-9128-4666-8f57-e17a7dd0afb6.jpg)
 
 ## 🔸  ****프로젝트를 진행하며!
 
