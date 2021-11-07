@@ -3,7 +3,9 @@
 
 ## 🔸 Demo
 Demo 동영상 입니다! <br>
+https://www.youtube.com/watch?v=Oqk7myTPL4U
 
+--------------------------------------------
 ![Screen Shot 2021-11-07 at 7 05 08 PM](https://user-images.githubusercontent.com/44131043/140640623-0c780a23-55e1-4ce0-ae33-115ff7da1298.jpg)
 [https://www.youtube.com/watch?v=Oqk7myTPL4U](https://www.youtube.com/watch?v=Oqk7myTPL4U)
 ![Screen Shot 2021-11-07 at 7 05 21 PM](https://user-images.githubusercontent.com/44131043/140640627-8d268b86-1999-4a2d-86dd-68f5653ef3be.jpg)
