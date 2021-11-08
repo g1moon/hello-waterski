@@ -18,9 +18,9 @@ Demo 동영상 입니다! <br>
 ## 🔷  1. 전국에 있는 수상 스키장의 정보를 담고, 제공하는 서비스
 
  전국에 많은 수상 스키장이 있습니다. 그리고 수상 스키를 즐기는 많은 사람들은 수상 스키장 정보를 얻기 위해 하나하나 네이버와 같은 포털 사이트에 검색을 해봅니다. 이러한 불편함을 해결하고자 전국에 스키장 정보를 회원들에게 제공하는 서비스를 기획했습니다. 동호인들은 이전 보다 쉽게 스키장 정보를 얻을 수 있고, 좋아요 개수 등을 통해 원하는 수상 스키장의 정보를 얻을 수 있을 것을 기대합니다.
+![topSpot](https://user-images.githubusercontent.com/44131043/140770152-307adcee-e8e1-4df1-98aa-ba9fd8e6c91d.jpg)
+![spotList](https://user-images.githubusercontent.com/44131043/140770175-9008c137-8bad-4156-88ff-a5a83bbe3aa9.jpg)
 
-<img src="https://user-images.githubusercontent.com/44131043/140756572-aa3ad2b7-ab11-480c-9261-6dee7656783d.jpg" width="60%">
-<img src="https://user-images.githubusercontent.com/44131043/140756590-d6c8d83e-1027-4806-b32e-f2fe6a90491a.jpg" width="60%">
 
 ## 🔹 2. 수상스키장의 정보를 볼 수 있는 이미지 게시판
 
