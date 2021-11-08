@@ -25,8 +25,10 @@ Demo 동영상 입니다! <br>
 ## 🔹 2. 수상스키장의 정보를 볼 수 있는 이미지 게시판
 
 수상 스키는 기상 상태에 영향을 많이 받습니다. 비가 오거나 바람이  불면 라이딩에 많은 영향을 줍니다. 특히 바람이  심하게 불면 평평했던 물이 꿀렁꿀렁해집니다. 마치 아스팔트를 달리던 차량이 비포장 도로에서 주행하는 듯한 느낌 입니다. 이렇게 많은 기상 상태에 영향을 많이 받다보니 스키어들은 전국의 스키장 상황(물 정보)를 사진으로 공유 합니다. 이것을 좀 더 편하게 할 수 있는 서비스를 만들고자 이미지 게시판을 기획했습니다. 
- <img src="https://user-images.githubusercontent.com/44131043/140753950-436764dc-4a01-4c92-84ac-c1181f74e4f8.jpg" width="60%">
- <img src="https://user-images.githubusercontent.com/44131043/140753998-8739370a-4c3d-471f-9855-6fb18e2cf235.jpg" width="60%">
+![images](https://user-images.githubusercontent.com/44131043/140763039-129b5fac-7072-4c78-a364-eeb06bd8a831.jpg)
+![imageModal](https://user-images.githubusercontent.com/44131043/140763047-f2dcf3c4-23d6-45b4-a7fc-35ec930cfe14.jpg)
+![imageUploadModal](https://user-images.githubusercontent.com/44131043/140763053-b1ef05cc-71c3-4537-a561-09e549524941.jpg)
+
 
 ---------------------------------
 
