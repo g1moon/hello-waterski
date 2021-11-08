@@ -36,22 +36,20 @@ Demo 동영상 입니다! <br>
 
  수상 스키는 성수기에 많은 사람들이 즐기는 스포츠 입니다. 그러다보니 화이트보드에 이름을 쓰고 대기를 하다가 라이딩을 하고 있습니다. 그래서 화이트 보드까지 직접 가야하고, 내 앞에  몇 명이 남아 있는지 알기 위해서는 다시 화이트보드까지 걸어가 순서를 확인해야합니다. 자기 순서가 다가오면 준비를 하기위해 화이트보드 근처에서 대기를 하는 경우도 많습니다. 이러한 불편함을 덜기 위해 줄서기 서비스를 제공하고, 앞에 몇 명이 있는지 등을 나타내는 서비스를 기획하게 되었습니다.
 
-<img src="https://user-images.githubusercontent.com/44131043/140755950-dae0e908-93ed-4791-b87d-ae96aa4e82b4.jpg" width="60%" height="40%">
-<img src="https://user-images.githubusercontent.com/44131043/140754068-6f03f141-70fd-484b-b6c6-00e1e573cab0.jpg" width="60%" height="40%">
-<img src="https://user-images.githubusercontent.com/44131043/140754083-c15cdf40-f47d-4a60-841f-ffd530c21022.jpg" width="60%" height="40%">
+<img src="https://user-images.githubusercontent.com/44131043/140775150-40d6f61a-ea12-432c-ab25-bf0ef634db5a.jpg" width="80%" >
+<img src="https://user-images.githubusercontent.com/44131043/140775214-30afb2e3-1186-4768-acf7-7ee1a6e64078.jpg" width="50%" >
+<img src="https://user-images.githubusercontent.com/44131043/140775266-a38d16db-e2c7-4f90-8518-799b56e12179.jpg" width="80%" >
+<img src="https://user-images.githubusercontent.com/44131043/140775288-fbd8bd04-f73a-4fd6-99f4-efa373e5b169.jpg" width="50%" >
 
 ---------------------------------
 
 ## 🔷 4.중고장터 서비스
 
  수상 스키 장비는 매우 고가의 장비 입니다. 구명조끼, 옷, 장갑, 핸들, 스키 등을 새로 장만하려면 최소 350만원 정도의 비용이 듭니다. 그러다보니 수상 스키를 즐기는 많은 사람들이 중고 거래를 하고 있습니다. 그래서 많은 수상스키 동호인들이 수상 스키 정보가 모여있는 공간에서 편하게 거래를 했으면 해 기획하게 되었습니다.
- 
- 
- 
-<img src="https://user-images.githubusercontent.com/44131043/140755347-06465834-fa77-491e-815d-6689bae8a34c.jpg" width="60%" >
-<img src="https://user-images.githubusercontent.com/44131043/140755353-4f4dfb7b-0c38-40a2-834b-d682db0edace.jpg" width="60%" >
-<img src="https://user-images.githubusercontent.com/44131043/140755359-7b9d52ef-3cdb-4ec6-b3ca-abee7a26a8b1.jpg" width="60%" >
 
+<img src="https://user-images.githubusercontent.com/44131043/140778115-b32f5546-2f9d-4d41-9faf-23a9aa598a1b.jpg" width="80%" >
+<img src="https://user-images.githubusercontent.com/44131043/140778127-5a95c246-ebf3-4bc4-8433-616fdf2db130.jpg" width="80%" >
+<img src="https://user-images.githubusercontent.com/44131043/140778133-b68d36bf-a142-4fb4-a2d1-0e62c15156c0.jpg" width="80%" >
 ---------------------------------
 
 ## 🔸  ****프로젝트를 진행하며!
