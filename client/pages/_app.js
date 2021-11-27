@@ -3,15 +3,20 @@ import "../styles/font.css";
 import GlobalStyle from "../styles/global";
 import React from "react";
 import NavBar from "../layout/NavBar";
+import {persistor, store, wrapper} from "../store";
+import {PersistGate} from "redux-persist/integration/react";
 import {Provider} from "react-redux";
-import {wrapper} from "../store";
 
 const App = ({Component, pageProps}) => {
   return (
     <>
-      <GlobalStyle/>
-      <NavBar/>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <GlobalStyle/>
+          <NavBar/>
+          <Component {...pageProps} />
+        </PersistGate>
+      </Provider>
     </>
   );
 };

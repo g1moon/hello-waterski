@@ -1,9 +1,7 @@
 import {combineReducers} from '@reduxjs/toolkit';
 import {persistReducer} from 'redux-persist';
-
 import storage from 'redux-persist/lib/storage';
 import {all} from 'redux-saga/effects';
-
 import {useditemReducer, USEDITEM} from "./useditem";
 import useditemSaga from '../modules/useditem/saga';
 import {HYDRATE} from "next-redux-wrapper";
@@ -13,12 +11,8 @@ import {USER, userReducer} from "./user";
 const rootPersistConfig = {
   key: 'root',
   storage,
-  blacklist: [USEDITEM]
+  whitelist: [USER]
 };
-
-// export const rootReducer = combineReducers({
-//   [USEDITEM]: useditemReducer,
-// });
 
 export const rootReducer = (state, action) => {
   switch (action.type) {
@@ -38,30 +32,4 @@ export function* rootSaga() {
   yield all([useditemSaga(), userSaga()]);
 }
 
-export default persistReducer(rootPersistConfig, rootReducer);
-
-
-//--------
-// import { combineReducers } from '@reduxjs/toolkit';
-// import { persistReducer } from 'redux-persist';
-// import { HYDRATE } from 'next-redux-wrapper';
-//
-// import storage from 'redux-persist/lib/storage';
-// import { all } from 'redux-saga/effects';
-//
-// import { useditemReducer, USEDITEM} from "./useditem";
-// import useditemSaga from '../modules/useditem/saga';
-//
-// const rootPersistConfig = {
-//   key: 'root',
-//   storage,
-//   blacklist: [USEDITEM]
-// };
-//
-//
-//
-// export function* rootSaga() {
-//   yield all([useditemSaga()]);
-// }
-//
-// export default persistReducer(rootPersistConfig, rootReducer);
+export const persistedRootReducer = persistReducer(rootPersistConfig, rootReducer);
