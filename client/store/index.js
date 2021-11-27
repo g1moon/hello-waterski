@@ -16,9 +16,8 @@ export const makeStore = (context) => {
 
 const store = makeStore();
 const persistor = persistStore(store);
+
 export const wrapper = createWrapper(makeStore, {debug: true});
 export { store, persistor };
-
 export const useAppDispatch = () => useDispatch();
 export const useAppSelector = useSelector;
-

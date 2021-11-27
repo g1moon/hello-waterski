@@ -1,7 +1,6 @@
 import {createSlice, createSelector, current} from '@reduxjs/toolkit';
 import {postUseditem, useditemAsyncAction} from './saga';
 
-//
 export const USEDITEM = 'useditem';
 
 // 초깃값
