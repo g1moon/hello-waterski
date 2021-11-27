@@ -9,6 +9,7 @@ const useditemServices = {
   },
 
   async saveImageAndReturnImagePath (imageFile) {
+    console.log('saveimagepath');
     const formData = new FormData();
     formData.append("img", imageFile);
     return await
@@ -29,9 +30,8 @@ const useditemServices = {
   },
 
   async postUseditem({ imageFile, objForPost }) {
-    const imagePath = await this.saveImageAndReturnImagePath(imageFile);
-    //imagePath 에러처리 필요함.
-    objForPost = { ...objForPost, "imageUrl": imagePath}
+    const imageUrl = await useditemServices.saveImageAndReturnImagePath(imageFile);
+    objForPost = { ...objForPost, imageUrl}
     return await fetcher('post', '/useditems', objForPost);
   }
 };

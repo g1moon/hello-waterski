@@ -44,7 +44,7 @@ const useditemSlice = createSlice({
       }
     )
     .addCase(`${useditemAsyncAction.postUseditem.success}`, (state, action) => {
-        state.useditem.data.unshift(action.payload.data);
+      state.useditem.data.unshift(action.payload.newUseditem);
       }
     )
     .addCase(`${useditemAsyncAction.postUseditem.failure}`, (state, action) => {
