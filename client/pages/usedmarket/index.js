@@ -35,10 +35,7 @@ const Index = () => {
   const {checkNeedToLoginService} = useUser();
 
   const onClickUploadButton = () => {
-    if (checkNeedToLoginService()) {
-      alert('로그인이 필요한 서비스 입니다.');
-      return;
-    }
+    if (checkNeedToLoginService()) return alert('로그인이 필요한 서비스 입니다.');
     router.push('/usedmarket/upload');
   };
 
@@ -46,11 +43,9 @@ const Index = () => {
       <>
         <Title>중고장터</Title>
         <UsedMarketContainer>
-          {/*<Link href={'/usedmarket/upload'}>*/}
           <UploadButton onClick={onClickUploadButton}>
             Upload New Item
           </UploadButton>
-          {/*</Link>*/}
           <UsedMarketSortingButton/>
           <UsedItemList/>
         </UsedMarketContainer>
