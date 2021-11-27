@@ -1,16 +1,18 @@
-import styled from 'styled-components';
 import UsedMarketSortingButton from '../../components/UsedMarketSortingButton';
 import UsedItemList from '../../components/UsedItemList';
-import {useRouter} from "next/router";
 import useUser from "../../hooks/useUser";
 import {PAGE_URL} from "../../constants/PageUrl";
+import {Title, UsedMarketContainer} from "./styles";
+import {UploadButton} from "../line/[spotId]/styles";
+import {useRouter} from "next/router";
+import {AERT_MESSAGE} from "../../constants/AlertMessage";
 
 const Index = () => {
   const router = useRouter();
   const {checkNeedToLoginService} = useUser();
 
   const onClickUploadButton = () => {
-    if (checkNeedToLoginService()) return alert('로그인이 필요한 서비스 입니다.');
+    if (checkNeedToLoginService()) return alert(AERT_MESSAGE.NEED_TO_LOGIN);
     router.push(PAGE_URL.USED_MARKET_UPLOAD);
   };
 
