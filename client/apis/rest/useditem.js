@@ -1,36 +1,14 @@
 import fetcher from "../../utils/fetcher";
-import axios from "axios";
+import ImageSaveServices from "./ImageSave";
 
 const useditemServices = {
 
   async getUseditemAll() {
-    const res = await fetcher('get','/useditems');
-    return res;
-  },
-
-  async saveImageAndReturnImagePath (imageFile) {
-    console.log('saveimagepath');
-    const formData = new FormData();
-    formData.append("img", imageFile);
-    return await
-      axios({
-        method: 'post',
-        url: '/saveImage',
-        baseURL: "http://localhost:8000",
-        data: formData,
-        headers: {"Content-Type": "multipart/form-data"},
-      })
-      .then(res => {
-        const {fileName} = res.data;
-        return `http://localhost:8000/img/${fileName}`;
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    return await fetcher('get','/useditems');
   },
 
   async postUseditem({ imageFile, objForPost }) {
-    const imageUrl = await useditemServices.saveImageAndReturnImagePath(imageFile);
+    const imageUrl = await ImageSaveServices.saveImageAndReturnImagePath(imageFile);
     objForPost = { ...objForPost, imageUrl}
     return await fetcher('post', '/useditems', objForPost);
   }
