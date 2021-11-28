@@ -5,7 +5,7 @@ import {
   Colum
 } from './styles';
 
-import useUseditem from "../../hooks/useUseditem";
+import useUseditem from "../../hooks/useUseditems";
 
 const Index = () => {
 
