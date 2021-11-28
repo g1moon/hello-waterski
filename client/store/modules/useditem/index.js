@@ -39,7 +39,6 @@ const useditemSlice = createSlice({
       }
     )
     .addCase(`${useditemAsyncAction.postUseditem.request}`, (state, action) => {
-        //action.payload = {imageFile: File, objForPost: {…}}
         state.useditem.loading = true;
       }
     )
@@ -57,13 +56,5 @@ const useditemSlice = createSlice({
 export const useditemAction = useditemSlice.actions;
 export const useditemReducer = useditemSlice.reducer;
 
-// selector
-const selfSelector = (state) => state[USEDITEM];
-const useditemSelector = createSelector(selfSelector, (state) => state.useditem);
-export const useditemAllDataSelector = createSelector(useditemSelector, (useditem) => useditem.data.useditemAllData);
-export const UseditemSelector = {
-  loading: createSelector(useditemSelector, (useditem) => useditem.loading),
-  data: createSelector(useditemSelector, (useditem) => useditem.data),
-  error: createSelector(useditemSelector, (useditem) => useditem.error),
-};
+
 
