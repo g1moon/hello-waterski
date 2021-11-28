@@ -7,6 +7,8 @@ import useditemSaga from '../modules/useditem/saga';
 import {HYDRATE} from "next-redux-wrapper";
 import userSaga from "./user/saga";
 import {USER, userReducer} from "./user";
+import {IMAGE, imageReducer} from "./image";
+import imageSaga from "./image/saga";
 
 const rootPersistConfig = {
   key: 'root',
@@ -22,6 +24,7 @@ export const rootReducer = (state, action) => {
       const combinedReducer = combineReducers({
         [USEDITEM]: useditemReducer,
         [USER]: userReducer,
+        [IMAGE]: imageReducer,
       });
       return combinedReducer(state, action);
     }
@@ -29,7 +32,7 @@ export const rootReducer = (state, action) => {
 };
 
 export function* rootSaga() {
-  yield all([useditemSaga(), userSaga()]);
+  yield all([useditemSaga(), userSaga(), imageSaga()]);
 }
 
 export const persistedRootReducer = persistReducer(rootPersistConfig, rootReducer);
