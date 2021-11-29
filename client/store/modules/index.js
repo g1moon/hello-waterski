@@ -9,6 +9,8 @@ import userSaga from "./user/saga";
 import {USER, userReducer} from "./user";
 import {IMAGE, imageReducer} from "./image";
 import imageSaga from "./image/saga";
+import {SPOT, spotReducer} from "./spot";
+import spotSaga from "./spot/saga";
 
 const rootPersistConfig = {
   key: 'root',
@@ -25,6 +27,7 @@ export const rootReducer = (state, action) => {
         [USEDITEM]: useditemReducer,
         [USER]: userReducer,
         [IMAGE]: imageReducer,
+        [SPOT]: spotReducer,
       });
       return combinedReducer(state, action);
     }
@@ -32,7 +35,7 @@ export const rootReducer = (state, action) => {
 };
 
 export function* rootSaga() {
-  yield all([useditemSaga(), userSaga(), imageSaga()]);
+  yield all([useditemSaga(), userSaga(), imageSaga(), spotSaga()]);
 }
 
 export const persistedRootReducer = persistReducer(rootPersistConfig, rootReducer);

@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import SpotItem from "../SpotItem/SpotItem";
 import styled from "styled-components";
+import useSpots from "../../hooks/useSpots";
 
 const TopSpotListContainer = styled.div`
   margin: 50px 50px 100px 50px;
@@ -31,13 +32,15 @@ const Container = styled.div`
 `;
 
 
-const TopSpotsList = ({topThreeSpot}) => {
+const TopSpotsList = () => {
 
-    return (
+  const {topSpots} = useSpots();
+
+  return (
         <Container>
             <Title>인기수상스키장</Title>
             <TopSpotListContainer>
-                {topThreeSpot.map(topSpot => {
+                {topSpots.map(topSpot => {
                     return <SpotItem oneSpotData={topSpot}/>;
                 })}
             </TopSpotListContainer>
