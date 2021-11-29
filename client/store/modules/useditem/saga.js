@@ -26,7 +26,7 @@ function* getUseditemAllSaga(action) {
     const data = yield call(useditemServices.getUseditemAll);
     yield put(getUseditemAll.success({data}));
   } catch (e) {
-    yield put(postUseditem.failure());
+    yield put(getUseditemAll.failure());
   }
 }
 
