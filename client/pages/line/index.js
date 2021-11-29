@@ -9,24 +9,24 @@ import {CarouselContainer} from "./styles";
 import useSpots from "../../hooks/useSpots";
 
 const Line = () => {
-    const {getSpots, spotsLoading, spots} = useSpots();
+  const {getSpots, spotsLoading} = useSpots();
 
-    useEffect(() => {
-        getSpots();
-    }, []);
+  useEffect(() => {
+    getSpots();
+  }, []);
 
-    if (spotsLoading) return <div>로딩</div>;
+  if (spotsLoading) return <div>로딩</div>;
 
-    return (
-      <>
-          <SearchBar/>
-          <TopSpotsList topThreeSpot={[]}/>
-          <CarouselContainer>
-              <Carousel/>
-          </CarouselContainer>
-          <SpotList/>
-      </>
-    );
+  return (
+    <>
+      <SearchBar/>
+      <TopSpotsList/>
+      <CarouselContainer>
+        <Carousel/>
+      </CarouselContainer>
+      <SpotList/>
+    </>
+  );
 };
 
 export default Line;
