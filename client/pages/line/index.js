@@ -6,50 +6,25 @@ import SpotList from '../../components/SpotList/SpotList';
 import Carousel from "../../components/carousel/Carousel";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import {CarouselContainer} from "./styles";
+import useSpots from "../../hooks/useSpots";
 
 const Line = () => {
-
-    const [isLogin, setIsLogin] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [allSpotData, setAllSpotData] = useState([]);
-    const [topThreeSpot, setTopThreeSpot] = useState([]);
-
-    const getAllSpotData = async () => {
-        const data = await fetcher('get', '/spots');
-        setAllSpotData(data);
-    };
-
-    const getTopThreeSpot = () => {
-        const tmp = [...allSpotData];
-        const topThreeSpots = tmp.sort(function (a, b) {
-            return b.like - a.like;
-        })
-        .slice(0, 3);
-        setTopThreeSpot(topThreeSpots);
-    };
+    const {getSpots, spotsLoading, spots} = useSpots();
 
     useEffect(() => {
-        setIsLoading(true);
-        checkLogin(setIsLogin);
-        getAllSpotData();
-        setIsLoading(false);
+        getSpots();
     }, []);
 
-    //spot데이터가 바뀌면 -> topThreespot가져오기
-    useEffect(() => {
-        getTopThreeSpot();
-    }, [allSpotData]);
-
-    if (isLoading) return <div>로딩</div>;
+    if (spotsLoading) return <div>로딩</div>;
 
     return (
       <>
           <SearchBar/>
-          <TopSpotsList topThreeSpot={topThreeSpot}/>
+          <TopSpotsList topThreeSpot={[]}/>
           <CarouselContainer>
               <Carousel/>
           </CarouselContainer>
-          <SpotList allSpotData={allSpotData}/>
+          <SpotList/>
       </>
     );
 };
