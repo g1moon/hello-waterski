@@ -1,24 +1,29 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useAppDispatch} from "../store";
 
-const useForm = ({ initialForm, onSubmit, checkIsValidForm}) => {
-  const [form, setForm] = initialForm;
+const useForm = ( {initialForm, onSubmitForm, createFormError, restDataForSubmit}) => {
 
-  const onChangeForm = (e) => {
+  const [form, setForm] = useState(initialForm);
+  const [error, setError] = useState({});
+
+  const onChangeHandler = (e) => {
     const {name, value} = e.target;
     setForm({...form, [name]: value});
   };
 
-  const onSubmitHandler = async () => {
-    checkIsValidForm(form);
-    onSubmit();
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    const objectForSubmit = {...form, ...restDataForSubmit};
+    setError(createFormError(objectForSubmit))
+    onSubmitForm(objectForSubmit);
+    resetForm();
   };
 
   const resetForm = () => {
     setForm(initialForm);
   };
 
-
-
+  return {onChangeHandler, onSubmitHandler, setForm, form, resetForm};
 };
 
 export default useForm;

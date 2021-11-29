@@ -21,7 +21,6 @@ const imageSlice = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(`${imageAsyncAction.getImages.request}`, (state, action) => {
-      console.log('req');
       state.image.loading = true;
       console.log(action.payload);
     })
@@ -30,7 +29,6 @@ const imageSlice = createSlice({
       state.image.data.images = action.payload.images;
     })
     .addCase(`${imageAsyncAction.getImages.failure}`, (state, action) => {
-      console.log('fai');
       state.image.loading = false;
     })
     .addCase(`${imageAsyncAction.postImage.request}`, (state, action) => {
