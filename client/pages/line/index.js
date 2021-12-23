@@ -6,52 +6,27 @@ import SpotList from '../../components/SpotList/SpotList';
 import Carousel from "../../components/carousel/Carousel";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import {CarouselContainer} from "./styles";
+import useSpots from "../../hooks/useSpots";
 
 const Line = () => {
+  const {getSpots, spotsLoading} = useSpots();
 
-    const [isLogin, setIsLogin] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [allSpotData, setAllSpotData] = useState([]);
-    const [topThreeSpot, setTopThreeSpot] = useState([]);
+  useEffect(() => {
+    getSpots();
+  }, []);
 
-    const getAllSpotData = async () => {
-        const data = await fetcher('get', '/spots');
-        setAllSpotData(data);
-    };
+  if (spotsLoading) return <div>로딩</div>;
 
-    const getTopThreeSpot = () => {
-        const tmp = [...allSpotData];
-        const topThreeSpots = tmp.sort(function (a, b) {
-            return b.like - a.like;
-        })
-        .slice(0, 3);
-        setTopThreeSpot(topThreeSpots);
-    };
-
-    useEffect(() => {
-        setIsLoading(true);
-        checkLogin(setIsLogin);
-        getAllSpotData();
-        setIsLoading(false);
-    }, []);
-
-    //spot데이터가 바뀌면 -> topThreespot가져오기
-    useEffect(() => {
-        getTopThreeSpot();
-    }, [allSpotData]);
-
-    if (isLoading) return <div>로딩</div>;
-
-    return (
-      <>
-          <SearchBar/>
-          <TopSpotsList topThreeSpot={topThreeSpot}/>
-          <CarouselContainer>
-              <Carousel/>
-          </CarouselContainer>
-          <SpotList allSpotData={allSpotData}/>
-      </>
-    );
+  return (
+    <>
+      <SearchBar/>
+      <TopSpotsList/>
+      <CarouselContainer>
+        <Carousel/>
+      </CarouselContainer>
+      <SpotList/>
+    </>
+  );
 };
 
 export default Line;

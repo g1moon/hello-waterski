@@ -46,7 +46,6 @@ const ContentsContainer = styled.div`
 
 const ImageModall = ({isOpenImageModal, clickedImageInfo}) => {
 
-    console.log('Modal:', clickedImageInfo);
     const {title, text, url, location, userId} = clickedImageInfo;
     return (
         <Modal isOpenModal={isOpenImageModal}>

@@ -18,7 +18,6 @@ const checkLogin =  (setLoginState, destUrl, router) => {
         }
     })
     .catch((err) => {
-        console.log('errrrrr');
         console.log(err);
     });
 };

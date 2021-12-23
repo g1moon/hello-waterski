@@ -1,46 +1,36 @@
-import {useState, useEffect, useRef} from 'react';
-import fetcher from '../../utils/fetcher';
+import { useEffect } from 'react';
 import UsedItem from '../UsedItem/UsedItem';
 import {
-    UsedItemListContainer,
-    Row,
-    Colum
+  Row,
+  Colum
 } from './styles';
-import TopSpotsList from "../TopSpotsList/TopSpotsList";
+
+import useUseditem from "../../hooks/useUseditems";
 
 const Index = () => {
 
-    const [allUsedItemData, setAllUsedItemsData] = useState([]);
+  const {getUseditemAll, useditemAllLoading, useditemAllData } = useUseditem();
 
-    const getAndSetUsedItemsData = async () => {
-        const data = await fetcher('get', '/useditems');
-        setAllUsedItemsData(data);
-    }
+  useEffect(() => {
+    getUseditemAll();
+  }, []);
 
-    //처음에 데이터 받아와서 등록.
-    useEffect(() => {
-        getAndSetUsedItemsData();
-    }, []);
+  if (useditemAllLoading || !(useditemAllData.length > 0)) return <div>로딩중</div>;
 
-    useEffect(() => {
-
-    }, [allUsedItemData]);
-
-
-    return (
-      <>
-          <Row>
-              {allUsedItemData.map(usedItem => {
-                  return (
-                    <Colum>
-                        <UsedItem usedItem={usedItem}/>
-                    </Colum>
-                  )
-              })
-              }
-          </Row>
-      </>
-    );
+  return (
+    <>
+      <Row>
+        {useditemAllData.map(usedItem => {
+            return (
+              <Colum>
+                  <UsedItem usedItem={usedItem}/>
+              </Colum>
+            )
+        })
+        }
+      </Row>
+    </>
+  );
 };
 
 export default Index;

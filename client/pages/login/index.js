@@ -1,11 +1,16 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import {useRouter} from 'next/router';
 import login from '../../utils/login';
 import Link from 'next/link';
+import {userAsyncAction} from "../../store/modules/user/saga";
+import {useAppDispatch, useAppSelector} from "../../store";
+import {LoginStatusSelector} from "../../store/modules/user";
+import useUser from "../../hooks/useUser";
+
 const Container = styled.div`
-  
+
   margin: auto;
 
   width: 30%; /* Full width */
@@ -45,79 +50,74 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   width: 100%;
-    
+
   &:hover {
     opacity: 0.6;
   }
 `;
 
 const SignUpContainer = styled.div`
-    text-align: center;
-    color: silver;
+  text-align: center;
+  color: silver;
 `;
 
 
-
-
 const LoginPage = () => {
+  const {
+    loginStatusLoading,
+      loginStatus,
+      getUsers,
+      login,
+      logout,
+      isLogged,
+      loginId,
+      loginPassword,
+      okLogin,
+      setLoginId,
+      setLoginPassword,
+      setOkLogin,
+      onClickLogin,
+      _onChangeInput,
+      loginSuccess,
+  } = useUser();
 
-    const [loginId, setLoginId] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
+  useEffect(() => {
+    isLogged() && loginSuccess();
+  }, [loginStatus]);
 
-    const router = useRouter();
+  return (
+    <Container>
+      <LoginForm onSubmit={onClickLogin}>
+        <ImageContainer>
+          <Image src='https://cdn-icons-png.flaticon.com/512/1177/1177568.png'></Image>
+        </ImageContainer>
+        <InputContainer>
+          <Label>ID</Label>
+          <Input type='text'
+                 name='id'
+                 plceholder='enter user id'
+                 value={loginId}
+                 onChange={_onChangeInput}
+          />
 
-    const onClickLogin = (e) => {
-        e.preventDefault();
-        setLoginId('');
-        setLoginPassword('');
-        console.log('login');
-        const body = {id: loginId, password: loginPassword}
-        login(body, '/', router);
-    };
+          <Label>PASSWORD</Label>
+          <Input type='password'
+                 name='password'
+                 plceholder='enter password'
+                 value={loginPassword}
+                 onChange={_onChangeInput}
 
-    const onClickSignUp = () => {
-
-    };
-
-    const _onChangeInput = (e) => {
-        e.preventDefault();
-        e.target.name === 'id' ? setLoginId(e.target.value) : setLoginPassword(e.target.value);
-    };
-
-
-    return (
-        <Container>
-            <LoginForm onSubmit={onClickLogin}>
-                <ImageContainer>
-                    <Image src='https://cdn-icons-png.flaticon.com/512/1177/1177568.png'></Image>
-                </ImageContainer>
-                <InputContainer>
-                    <Label>ID</Label>
-                    <Input type='text'
-                           name='id'
-                           plceholder='enter user id'
-                           value={loginId}
-                           onChange={_onChangeInput}
-                    />
-
-                    <Label>PASSWORD</Label>
-                    <Input type='password'
-                           name='password'
-                           plceholder='enter password'
-                           value={loginPassword}
-                           onChange={_onChangeInput}
-
-                    />
-                </InputContainer>
-                <Button type='button' onClick={onClickLogin}>Login</Button>
-                <SignUpContainer>
-                <Link href={'/user'}>
-                    회원가입
-                </Link>
-                </SignUpContainer>
-            </LoginForm>
-        </Container>
-    );
+          />
+        </InputContainer>
+        <Button type='button' onClick={onClickLogin}>Login</Button>
+        <SignUpContainer>
+          <Link href={'/user'}>
+            회원가입
+          </Link>
+        </SignUpContainer>
+      </LoginForm>
+    </Container>
+  );
 };
 
 export default LoginPage;

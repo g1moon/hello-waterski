@@ -18,7 +18,6 @@ const fetcher = async (method, url, ...rest) => {
         const res = await axios[method](url, ...rest);
         return res.data;
     } catch (err){
-        console.log('fetcher-error', err.response);
         return err.response;
     }
 };

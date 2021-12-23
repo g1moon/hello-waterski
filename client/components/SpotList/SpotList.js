@@ -1,6 +1,7 @@
 import React from 'react';
 import SpotItem from '../SpotItem/SpotItem';
 import styled from "styled-components";
+import useSpots from "../../hooks/useSpots";
 
 const Row = styled.div`
   content: "";
@@ -44,13 +45,14 @@ const Title = styled.h1`
 
 
 const SpotList = ({allSpotData}) => {
+  const { spots } = useSpots();
 
     return (
         <>
             <Title>수상스키장 목록</Title>
 
             <Row>
-                {allSpotData.map(oneSpotData => {
+                {spots.map(oneSpotData => {
                     return (
                         <Col>
                             <SpotItem oneSpotData={oneSpotData}/>

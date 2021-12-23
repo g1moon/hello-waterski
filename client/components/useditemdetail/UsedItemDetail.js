@@ -101,7 +101,6 @@ const UsedItemDetail = () => {
     }, []);
 
     useEffect(() => {
-        console.log(itemInfo)
     }, [itemInfo]);
 
 

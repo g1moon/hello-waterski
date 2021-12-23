@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import fetcher from "../../utils/fetcher";
 import {LikeButton, SpotLike, SpotLikeImage} from "./styles";
-import alertNeedToLogin from "../../utils/alertNeedToLogin";
+import useUser from "../../hooks/useUser";
 
 const SpotLikeButton = ({allSpotData, setAllSpotData, likeCount, spotId}) => {
   const [isLiked, setIsLiked] = useState(false);
   const [spotLikes, setSpotLikes] = useState([]);
   const [likeCounts, setLikeCounts] = useState(0);
+
+  const {checkNeedToLoginService} = useUser();
 
   const getSpotLikes = async () => {
     const data = await fetcher('get', '/spotLikes');
@@ -57,7 +59,10 @@ const SpotLikeButton = ({allSpotData, setAllSpotData, likeCount, spotId}) => {
   }
 
   const onClickLikeButton = () => {
-    if (alertNeedToLogin()) return;
+    if (checkNeedToLoginService()) {
+      alert('로그인이 필요한 서비스 입니다.');
+      return;
+    }
     isLiked ? dislikeSpot() : likeSpot();
   }
 
